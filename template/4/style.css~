@@ -1,0 +1,280 @@
+body {
+	background : url(images/bgimage.jpg);
+	color : #FFFFFF;
+	font-size : 10pt;
+	font-family : Verdana, Helectiva, Arial, Sans-Serif;
+}
+
+td {
+	font-size : 10pt;
+}
+
+a:link, a:visited {
+	color : #FFFF00;
+	text-decoration : none;
+}
+
+a:hover, a:active {
+	color : #00FF00;
+	text-decoration : none;
+}
+
+form {
+	display: inline;
+}
+
+.onclick {
+	color : #FFFF00;
+}
+
+.header {
+	border: 0px solid gray;
+	background : #444466;
+	width: 100%;
+}
+
+.menu {
+	border: 1px solid gray;
+	background : #444466;
+	width: 100%;
+}
+
+.menutitle {
+	background-color: #444466;
+	text-align: left;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.menusection {
+	background-color: #333344;
+	text-align: left;
+	padding: 4px;
+	margin-left: 6px;
+}
+
+.menuitem {
+	padding: 1px;
+}
+
+.title {
+	font-weight : bold;
+}
+
+.sidebarheader {
+	color : #FFFFFF;
+	font-weight : bold;
+	text-align : left;
+}
+
+.sidetextbox {
+	border : 1px solid gray;
+	background-color : #FFFFFF;
+}
+
+.sidebutton {
+	border : 1px solid gray;
+	background-color : lightgray;
+}
+
+.login {
+}
+
+.hilight {
+	font-weight: bold;
+	color: #7bb2ff;
+}
+
+.highlight {
+	color: #7bb2ff;
+}
+
+.textbox {
+	border : 1px solid #000059;
+	background : #7080A9;
+	color : #000000;
+}
+
+.button {
+	border : 1px solid #000059;
+	background : #5060A9;
+	color : #FFFFFF;
+}
+
+.selectbox {
+
+}
+
+.newsheader {
+	border : 1px solid #FFFF00;
+	border-collapse : collapse;
+}
+
+.newsheadercell {
+	border : 1px solid #FFFF00;
+	background-color: #FF0000;
+}
+
+.newsbodycell {
+	border : 1px solid #FFFF00;
+}
+
+.dbheader {
+	border : 1px solid #FFFF00;
+	border-collapse : collapse;
+}
+
+.dbheadercell {
+	border : 1px solid #FFFF00;
+	background : #FF0000;
+	color : #FFFFFF;
+}
+
+.dbbodycell {
+	border : 1px solid #FFFF00;
+	color : #FFFFFF;
+}
+
+.dblheader {
+	border : 1px solid #666666;
+	border-collapse : collapse;
+}
+
+.dblheadercell {
+	border : 1px solid #666666;
+	background : #FF0000;
+	color : #FFFFFF;
+}
+
+.dblbodycell {
+	border : 1px solid #666666;
+	color : #FFFFFF;
+}
+
+.tableheader {
+	text-align : left;
+	border : 1px solid gray;
+	border-collapse : collapse;
+	background-color : #111122;
+	width : 90%;
+}
+
+.tablecell1 {
+}
+
+.tablecell2 {
+}
+
+.tablecell3 {
+	border : 1px solid gray;
+}
+
+.itembox {
+	border: 1px solid #000078;
+	background-color: #000058;
+}
+
+.itemboxcell1 {
+	background-color: #000068;
+}
+
+.orderbar {
+	background-color: #000070;
+	text-align: center;
+}
+
+.activecell0 {
+	background-color: #000058;
+}
+
+.activecell1 {
+	background-color: #444460;
+}
+
+.boxheader {
+	color : yellow;
+	font-size : 22pt;
+}
+
+.title_fixed {
+	width: 30%;
+	font-weight: bold;
+}
+
+.field_fixed {
+	width: 70%;
+}
+
+
+
+
+.sform {
+	text-align: left;
+	border : 1px solid gray;
+	background-color : #111122;
+	width: 90%;
+}
+
+.sformtable {
+	text-align: left;
+	border: 0px;
+	width: 100%;
+}
+
+.sformblock {
+	text-align: left;
+	padding: 3px;
+}
+
+.sformstrip {
+	background-color: #444466;
+	text-align: left;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.sformsubstrip {
+	background-color: #3B3B55;
+	text-align: left;
+	padding: 4px;
+}
+
+.sformleft {
+	width: 35%;
+	background-color: #333344;
+	padding: 3px;
+}
+
+.sformright {
+	width: 65%;
+	padding: 3px;
+}
+
+.sformleftw {
+	background-color: #333344;
+	padding: 3px;
+}
+
+.sformfree {
+	padding: 2px;
+}
+
+.sformtitle {
+	background-color: #444466;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.message {
+	text-align: center;
+	border: 2px solid #333344;
+	background-color: #6668A8;
+	padding: 5px;
+	width: 90%;
+}
+
+.search_hl {
+	color: red;
+	background-color: yellow;
+	font-weight: bold;
+}

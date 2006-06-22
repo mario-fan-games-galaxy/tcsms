@@ -1,0 +1,221 @@
+  <br />
+  <div align='center'>
+	  <form method='post' action='{{submit_url}}' enctype='multipart/form-data'>
+	  <input type='hidden' name='security_token' value='{{security_token}}' />
+	  <input type='hidden' name='uid' value='{{uid}}' />
+	  <table border='0' width='90%'>
+	    <tr>
+	      <td class='tablecell1' colspan='2'>
+	        <span class='boxheader'>Account Settings</span>
+	      </td>
+	    </tr>
+    </table>
+	  <table class='tableheader'>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Part 1</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Profile</b></td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Username
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <b>{{username}}</b>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        User ID
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <b>{{uid}}</b>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Email Address
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='email' value='{{email}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Website
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='website' value='{{website}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Website URL
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='weburl' value='{{weburl}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Personal Icon
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='icon' value='{{icon}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Show Email
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        {{show_email}}
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        AIM ID
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='aim' value='{{aim}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        ICQ Number
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='icq' value='{{icq}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        MSN ID
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='msn' value='{{msn}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Y!M ID
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' size='40' name='yim' value='{{yim}}' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Part 2</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Browsing Defaults</b></td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Default Order
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        {{order}}
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Skin
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        {{def_skin}}
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Items Per Page
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        {{items}}
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Part 3</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Change Password</b></td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        &nbsp;
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        Leave fields blank to keep existing password
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Old Password
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='password' size='40' name='opass' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        New Password
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='password' size='40' name='npass1' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Retype Password
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='password' size='40' name='npass2' class='textbox'>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Part 4</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Save Settings</b></td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td colspan='2' class='tablecell2' align='center'>
+	        <input type='submit' value='Submit Changes' class='button' />
+	      </td>
+	    </tr>
+    </table>
+	  </form>
+	</div>

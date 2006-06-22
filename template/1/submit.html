@@ -1,0 +1,96 @@
+  <script type='text/javascript'>
+    function load_page_cb(newdata) {
+      document.getElementById("page").innerHTML = newdata;
+    }
+    
+    function load_page(num) {
+      document.getElementById("page").innerHTML = "Loading Submission Form.  Please Wait.";
+      x_component_submit__show_form_page(num, load_page_cb);
+    }
+  </script>
+	<div align='center'>
+	  <img src='{{image_path}}/submitit_table_header.gif' alt='Game and Lib Submission' />
+	</div>
+	<div align='center'>
+	  <span class='title'>
+	    Submit It
+	  </span>
+	  <br />
+	  Submitting and adding files used to be a long manual process.  Now it's automatic.  Fill in the fields and attach your file to automatically send it to the moderation queue where it will wait for aproval from the administrators.
+	</div>
+	<br />
+	<div align='center'>
+	  <form method='post' action='{{submit_url}}' enctype='multipart/form-data'>
+	  <input type='hidden' name='security_token' value='{{security_token}}' />
+	  <table border='0' width='90%'>
+	    <tr>
+	      <td class='tablecell1' colspan='2'>
+	        <span class='boxheader'>Submit It</span>
+	      </td>
+	    </tr>
+    </table>
+	  <table class='tableheader'>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Step 1</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Choose a submission type</b></td>
+	    </tr>
+	      <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Submission Type
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <select name='c' class='selectbox' size='1'>
+	          {{parent_list}}
+	        </select>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Step 2</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Fill in information about your submission</b></td>
+	    </tr>
+	      <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td width='100%' colspan='2'>
+	        <div id='page' style='{{mod_display}}'>
+	          {{module}}
+	        </div>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Step 3</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Submit your work</b></td>
+	    </tr>
+	      <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    <tr>
+	      <td colspan='2' class='tablecell2' align='center'>
+	        <input type='submit' value='Submit!' class='button' id='exform_submit' onClick="javascript:disable_element('exform_submit'); show('exform_submsg');" />
+	        <div id='exform_submsg' style='display:none'>
+	        Your submission is being transfered.  Please do not leave this page until the transfer is completed.
+	        </div>
+	      </td>
+	    </tr>
+	  </table>
+	  </form>
+	</div>

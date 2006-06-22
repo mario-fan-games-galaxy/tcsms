@@ -1,0 +1,140 @@
+<script type='text/javascript'>
+  function check_move() {
+      id = get_by_id('change_to');
+      
+      if (id.value != '') {
+          form_check = confirm('Warning: You have chosen to move this submission to a new parent category.  All extended data for this submission will be lost!\n\nDo you still wish to continue?');
+      } else {
+          form_check = true;
+      }
+    
+      if (form_check == true) {
+          return true;
+      } else {
+          return false;
+      }
+  }
+
+  function check_drop() {
+      form_check = confirm('Warning: Dropping this record will permanently delete them from the database.\n\nDo you still wish to continue?');
+    
+      if (form_check == true) {
+          return true;
+      } else {
+          return false;
+      }
+  }
+</script>
+<form method='post' action='{{url}}' enctype='multipart/form-data'>
+  <input type='hidden' name='id' value='{{idx}}' />
+  <input type='hidden' name='c' value='{{c}}' />
+  <input type='hidden' name='security_token' value='{{security_token}}' />
+	<div align='center'>
+		<table border='0' cellspacing='0' cellpadding='1' width='90%'>
+		
+		  <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+		  <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Part 1</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Base Data and Information</b></td>
+	    </tr>
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    
+  		<tr>
+  		  <td class='title_fixed'>
+  		    <a href='javascript:show_hide(10);'><img src='{{image_path}}/info.gif' border='0' alt='?' /></a> Parent Category
+  		  </td>
+  		  <td class='field_fixed'>
+  		    <b>{{parent_class}}</b> <a href='javascript:show_hide(25);show_hide(26);'>(Change)</a>
+  		  </td>
+  		</tr>
+  		<tr id='menu_25' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed'>
+  		    &nbsp;
+  		  </td>
+  		</tr>
+  		<tr id='menu_26' style='display:none'>
+  		  <td class='title_fixed' style='border-top: 1px solid gray; border-bottom: 1px solid gray; background-color: #BDC5EB'>
+  		    &#8212;&#8212; Change To
+  		  </td>
+  		  <td class='field_fixed' style='border-top: 1px solid gray; border-bottom: 1px solid gray; background-color: #BDC5EB'>
+  		    {{parent_cat_list}}
+  		  </td>
+  		</tr>
+  		<tr id='menu_10' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed' style='background-color:#FBFCCE'>
+  		    Parent categories define what type the submission is, and also define additional type-specific fields a submission can have, such as number of reviews associated with a game.  If necessary, submissions can be moved to a different parent category, however any type-specific data will be lost in the conversion.
+  		  </td>
+  		</tr>
+  		<tr>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed'>
+  		    &nbsp;
+  		  </td>
+  		</tr>
+  		
+      {{form}}
+      
+	    <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+		  <tr>
+	      <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Part 3</td>
+	      <td style='border-bottom:1px solid #666666' valign='bottom'><b>Commit Changes</b></td>
+	    </tr>
+	      <tr>
+	      <td>&nbsp;</td>
+	      <td>&nbsp;</td>
+	    </tr>
+	    
+  		<tr>
+  		  <td class='title_fixed' valign='top'>
+  		    <a href='javascript:show_hide(18);'><img src='{{image_path}}/info.gif' border='0' alt='?' /></a> Admin Comment
+  		  </td>
+  		  <td class='field_fixed'>
+  		    <textarea name='admincomment' rows='4' cols='30' class='textbox'></textarea>
+  		    <br /><input type='checkbox' name='omit_comment' value='1' class='checkbox' /> Do not inform the user of this modification
+  		  </td>
+  		</tr>
+  		<tr id='menu_18' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed' style='background-color:#FBFCCE'>
+  		    Admin Comments are meant to inform users of what you're doing to change their submissions, such as changing the description or title to something more appropriate, or changing the categories or tags.  If the modification is very trivial, you can chose to not sent a comment by checking the box below, but it's strongly advised you leave comments for any significent changes.  
+  		  </td>
+  		</tr>
+  		<tr>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed'>
+  		    &nbsp;
+  		  </td>
+  		</tr>
+  		<tr>
+  		  <td class='title_fixed' valign='top'>
+  		    Complete Form
+  		  </td>
+  		  <td class='field_fixed'>
+          <input type='submit' class='button' value='Update Record' onclick='return check_move();' /> 
+          <input type='submit' class='button' value='DROP Record' style='background-color: #FF6169; color: white' onclick='return check_drop();' />
+  		  </td>
+  		</tr>
+		</table>
+	</div>
+</form>

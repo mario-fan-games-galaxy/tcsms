@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+  <head>
+    <title>MFGG - Mario Fan Games Galaxy</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1' />
+    <link rel='stylesheet' href='{{template_url}}/style.css' type='text/css' />
+    <script type='text/javascript'>
+      <!--
+      {{sajax}}
+      
+      var newUrl = '';
+      
+      function expand_menu_cb(newdata) {
+        document.getElementById('menu').innerHTML = newdata;
+      }
+      
+      function expand_link_cb(newdata) {
+        window.location = newUrl;
+      }
+      
+      function expand_menu(num) {
+        x_component_menu__get_menu(num, expand_menu_cb);
+      }
+      
+      function expand_link(num, url) {
+        newUrl = url;
+        x_component_menu__get_menu(num, expand_link_cb);
+      }
+      -->
+    </script>
+  </head>
+  <body>
+    <script type='text/javascript' src='{{template_url}}/global.js'></script>
+    <table border='0' cellspacing='0' cellpadding='2' width='100%'>
+      <tr>
+        <td width='150' valign='top' height='61' class='header'>
+          <div align='center'>
+            <img src='{{image_path}}/logo2.gif' width='76' height='71' alt='Logo Image' />
+          </div>
+        </td>
+        <td height='61' class='header'>
+          <div align='center'>
+            <img src='{{image_path}}/title.gif' width='500' height='70' alt='Title Image' />
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td width='150' valign='top' height='180' style='background: url({{image_path}}/menubg.jpg)'>
+          <br />
+          <div id='menu'>
+          {{menu}}
+          </div>
+          <br />
+          {{login}}
+          <div style='text-align:center'>
+          <br />
+          <table border='0' cellpadding='2' cellspacing='0' width='130'>
+            <tr>
+              <td width='100%' class='sidebarheader'>
+                Affiliates
+              </td>
+            </tr>
+            <tr>
+              <td width='100%' align='center'>
+                <a href="http://metroidr.brpxqzme.net/" target="_blank">
+                <img src="http://metroidr.brpxqzme.net/mfmbutton.gif" alt="Metroid Fan Mission" width="88" height="31" border="0" />&nbsp;&nbsp;&nbsp;
+                </a><br />
+              </td>
+            </tr>
+          </table>
+          </div>
+        </td>
+        <td style='background: url({{image_path}}/bgimage.jpg)' valign='top'>
+          {{msg}}
+          {{content}}
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

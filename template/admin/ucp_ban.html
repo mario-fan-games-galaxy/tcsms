@@ -1,0 +1,65 @@
+You can setup IP banning (blacklisting) and exceptions (whitelisting) on this page.  Blacklisting should only be used as a last resort.
+<form method='post' action='{{root_url}}act=ucp&amp;param=03'>
+<input type='hidden' name='security_token' value='{{security_token}}' />
+<br />
+<div align='center'>
+	<table border='0' cellspacing='0' cellpadding='1' width='90%'>
+	  <tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Blacklist
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    Enter one IP per line.  Use an asterisk (*) as a wildcard.
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <textarea name='blacklist' class='textbox' rows='8' cols='40'>{{blacklist}}</textarea>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Whitelist
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    Enter one user ID per line.
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <textarea name='whitelist' class='textbox' rows='8' cols='40'>{{whitelist}}</textarea>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td width='70%' class='field'>
+        <input type='submit' class='button' value='Update User' />
+ 		  </td>
+ 		</tr>
+ 	</table>
+</div>
+</form>

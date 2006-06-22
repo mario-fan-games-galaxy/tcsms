@@ -1,0 +1,73 @@
+<!--//part//-->
+<tr>
+  <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; {{part}}</td>
+  <td style='border-bottom:1px solid #666666' valign='bottom'><b>{{title}}</b></td>
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<!--//field//-->
+<tr>
+  <td class='title_fixed' valign='top'>
+    {{title}}
+  </td>
+  <td class='field_fixed'>
+    {{field}}
+  </td>
+</tr>
+<!--//subfield//-->
+<tr id='{{id}}' style='display:none'>
+  <td valign='top' class='title_fixed' style='background-color: #28294E; {{style}}'>
+    {{title}}
+  </td>
+  <td class='field_fixed' style='background-color: #28294E; {{style}}'>
+    {{field}}
+  </td>
+</tr>
+<!--//break//-->
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>
+<!--//subfieldstart//-->
+<tr id='{{id}}' style='display:none'>
+  <td valign='top' class='title_fixed' style='background-color: #28294E; border-top: 1px solid gray;'>
+    {{title}}
+  </td>
+  <td class='field_fixed' style='background-color: #28294E; border-top: 1px solid gray;'>
+    {{field}}
+  </td>
+</tr>
+<!--//subfieldend//-->
+<tr id='{{id}}' style='display:none'>
+  <td valign='top' class='title_fixed' style='background-color: #28294E; border-bottom: 1px solid gray;'>
+    {{title}}
+  </td>
+  <td class='field_fixed' style='background-color: #28294E; border-bottom: 1px solid gray;'>
+    {{field}}
+  </td>
+</tr>
+<!--//subfieldstartend//-->
+<tr id='{{id}}' style='display:none'>
+  <td valign='top' class='title_fixed' style='background-color: #28294E; border-top: 1px solid gray; border-bottom: 1px solid gray;'>
+    {{title}}
+  </td>
+  <td class='field_fixed' style='background-color: #28294E; border-top: 1px solid gray; border-bottom: 1px solid gray;'>
+    {{field}}
+  </td>
+</tr>
+<!--//infoblock//-->
+<tr id='{{id}}' style='display:none'>
+  <td class='title_fixed'>
+    &nbsp;
+  </td>
+  <td class='field_fixed' style='background-color:#FBFCCE'>
+    {{message}}
+  </td>
+</tr>
+<!--//hiddenbreak//-->
+<tr id='{{id}}' style='display:none'>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+</tr>

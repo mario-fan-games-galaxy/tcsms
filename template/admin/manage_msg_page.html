@@ -1,0 +1,143 @@
+After handling a message, the message should be closed so it isn't responded to by multiple staff members.  After being closed, the message will be archived for future review.
+<div align='center'>
+<br />
+  <form method='post' action='{{close_url}}'>
+	<table border='0' cellspacing='0' cellpadding='1' width='90%'>
+	  <tr>
+ 		  <td width='20%' class='title'>
+ 		    Title
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    <b>{{title}}</b>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title'>
+ 		    Date
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    {{report_date}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title'>
+ 		    Sent By
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    {{sender}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title'>
+ 		    Message Type
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    {{type}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title'>
+ 		    Status
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    <span class='highlight2'>{{status}}</span>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title' valign='top'>
+ 		    Message
+ 		  </td>
+ 		  <td width='80%' class='field' style='background-color:#FFFFFF; border:1px solid black; color:#000000;'>
+ 		    {{message}}
+ 		  </td>
+ 		</tr>
+ 		<tr style='{{show_close}}'>
+ 		  <td width='20%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr style='{{show_close}}'>
+ 		  <td width='20%' class='title'>
+ 		    Closed By
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    {{closed_by}}
+ 		  </td>
+ 		</tr>
+ 		<tr style='{{show_close}}'>
+ 		  <td width='20%' class='title'>
+ 		    Close Date
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    {{close_date}}
+ 		  </td>
+ 		</tr>
+ 		<tr style='{{show_close}}'>
+ 		  <td width='20%' class='title' valign='top'>
+ 		    Staff Notes
+ 		  </td>
+ 		  <td width='80%' class='field' style='background-color:#FFFFFF; border:1px solid black; color:#000000;'>
+ 		    {{staff_comments}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title' valign='top'>
+ 		    Actions
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    {{actions}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='20%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr id='close_frm1' style='display:none'>
+      <td style='border-bottom:1px solid #666666; font-size:14pt' colspan='2'>&#8212;&#8212; Close Message</td>
+    </tr>
+    <tr id='close_frm2' style='display:none'>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+ 		<tr id='close_frm3' style='display:none'>
+ 		  <td width='20%' class='title' valign='top'>
+ 		    Description of Resolution
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    <textarea rows='6' cols='40' name='resolution' class='textbox'></textarea>
+ 		  </td>
+ 		</tr>
+ 		<tr id='close_frm4' style='display:none'>
+ 		  <td width='20%' class='title'>
+ 		    Submit
+ 		  </td>
+ 		  <td width='80%' class='field'>
+ 		    <input type='submit' value='Close Message' class='button' />
+ 		  </td>
+ 		</tr>
+  </table>
+  </form>
+</div>
