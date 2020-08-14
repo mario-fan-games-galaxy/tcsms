@@ -1,10 +1,11 @@
 <?php
 
-class template_acp_mod_howtos {
-
-function acp_edit_form ($res) {
-global $STD;
-return <<<HTML
+class template_acp_mod_howtos
+{
+    public function acp_edit_form($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class='title_fixed' valign='top'>
     Target Application
@@ -171,6 +172,5 @@ return <<<HTML
   <td>&nbsp;</td>
 </tr>
 HTML;
-}
-
+    }
 }

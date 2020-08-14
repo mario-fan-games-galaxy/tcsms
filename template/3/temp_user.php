@@ -1,10 +1,11 @@
 <?php
 
-class template_user {
-
-function userpage ($user) {
-global $STD;
-return <<<HTML
+class template_user
+{
+    public function userpage($user)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 &nbsp;
 <table class="sformtable" cellspacing="1">
@@ -78,18 +79,20 @@ return <<<HTML
 </table>
 </div>
 HTML;
-}
+    }
 
-function queue_text () {
-global $STD;
-return <<<HTML
+    public function queue_text()
+    {
+        global $STD;
+        return <<<HTML
 <span class="queued"> (QUEUED)</span>
 HTML;
-}
+    }
 
-function prefs_page ($user, $form_elements, $token) {
-global $STD;
-return <<<HTML
+    public function prefs_page($user, $form_elements, $token)
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=user&amp;param=04">
 <input type="hidden" name="security_token" value="{$token}" />
 <input type="hidden" name="uid" value="{$user['uid']}" />
@@ -215,11 +218,12 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function public_type_row ($select, $uid) {
-global $STD;
-return <<<HTML
+    public function public_type_row($select, $uid)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" name="changetype" action="{$STD->tags['root_url']}act=user&param=09&uid={$uid}">
 <div class="sformstrip">
@@ -227,11 +231,12 @@ Currently Viewing: {$select} <input type="submit" value="Change" class="button" 
 </div>
 </form>
 HTML;
-}
+    }
 
-function manage_type_row ($select) {
-global $STD;
-return <<<HTML
+    public function manage_type_row($select)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" name="changetype" action="{$STD->tags['root_url']}act=user&param=03">
 <div class="sformstrip">
@@ -239,18 +244,20 @@ Currently Viewing: {$select} <input type="submit" value="Change" class="button" 
 </div>
 </form>
 HTML;
-}
+    }
 
-function manage_start_rows () {
-global $STD;
-return <<<HTML
+    public function manage_start_rows()
+    {
+        global $STD;
+        return <<<HTML
 <table class="sformtable" cellspacing="1">
 HTML;
-}
+    }
 
-function manage_end_rows ($pages, $order, $order_url) {
-global $STD;
-return <<<HTML
+    public function manage_end_rows($pages, $order, $order_url)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformtitle" colspan="2">
   <form method="post" action="{$order_url}">
@@ -262,11 +269,12 @@ return <<<HTML
 <div class="sformstrip">Pages: {$pages}</div>
 </div>
 HTML;
-}
+    }
 
-function request_remove ($rid, $submission, $form_url, $reason) {
-global $STD;
-return <<<HTML
+    public function request_remove($rid, $submission, $form_url, $reason)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$form_url}">
 <input type="hidden" name="rid" value="{$rid}" />
@@ -284,6 +292,5 @@ return <<<HTML
 <div class="sformstrip" style="text-align:center"><input type="submit" value="Submit Request" class="button" /></div>
 </div>
 HTML;
-}
-
+    }
 }

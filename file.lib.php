@@ -34,25 +34,27 @@
 //----------------------------------------//
 
 
-class fileObject {
-	var $name;
-    var $path;
-    var $ext;
-    var $size;
-    var $lastATime;
-    var $lastMTime;
-    var $type;
-    var $owner;
-    var $group;
-    var $perms;
+class fileObject
+{
+    public $name;
+    public $path;
+    public $ext;
+    public $size;
+    public $lastATime;
+    public $lastMTime;
+    public $type;
+    public $owner;
+    public $group;
+    public $perms;
 
-    function fileObject($file) {
-    	$this->path = realpath($file);
+    public function fileObject($file)
+    {
+        $this->path = realpath($file);
         $this->name = basename($file);
         $this->ext = array_pop(explode('.', $this->name, 2));
         if (is_dir($this->path)) {
-        	$this->ext = NULL;
-    	}
+            $this->ext = null;
+        }
         $this->size = filesize($file);
         $this->lastATime = fileatime($file);
         $this->lastMTime = filemtime($file);
@@ -60,458 +62,496 @@ class fileObject {
         $this->owner = fileowner($file);
         $this->group = filegroup($file);
         $this->perms = fileperms($file);
-        }
+    }
 
-    function formatSize() {
-    	if ($this->size < 1024) {
-        	return $this->size . " bytes";
+    public function formatSize()
+    {
+        if ($this->size < 1024) {
+            return $this->size . " bytes";
         } elseif ($this->size < 1048576) {
-        	return round($this->size / 1024, 2) . " KB";
+            return round($this->size / 1024, 2) . " KB";
         } elseif ($this->size < 1072741824) {
-        	return round($this->size / 1048576, 2) . " MB";
+            return round($this->size / 1048576, 2) . " MB";
         } else {
-        	return round($this->size / 1072741824, 2) . " GB";
+            return round($this->size / 1072741824, 2) . " GB";
         }
-	}
+    }
 
-    function rwxPerms() {
-    	$sP = '';
+    public function rwxPerms()
+    {
+        $sP = '';
 
-        if($this->perms & 0x1000)     // FIFO pipe
-     		$sP = 'p';
-   		elseif($this->perms & 0x2000) // Character special
-     		$sP = 'c';
-   		elseif($this->perms & 0x4000) // Directory
-     		$sP = 'd';
-   		elseif($this->perms & 0x6000) // Block special
-  		    $sP = 'b';
-  		elseif($this->perms & 0x8000) // Regular
-			$sP = '-';
-   		elseif($this->perms & 0xA000) // Symbolic Link
-     		$sP = 'l';
-   		elseif($this->perms & 0xC000) // Socket
-     		$sP = 's';
-   		else                       // UNKNOWN
-     		$sP = 'u';
+        if ($this->perms & 0x1000) {     // FIFO pipe
+            $sP = 'p';
+        } elseif ($this->perms & 0x2000) { // Character special
+            $sP = 'c';
+        } elseif ($this->perms & 0x4000) { // Directory
+            $sP = 'd';
+        } elseif ($this->perms & 0x6000) { // Block special
+            $sP = 'b';
+        } elseif ($this->perms & 0x8000) { // Regular
+            $sP = '-';
+        } elseif ($this->perms & 0xA000) { // Symbolic Link
+            $sP = 'l';
+        } elseif ($this->perms & 0xC000) { // Socket
+            $sP = 's';
+        } else {                       // UNKNOWN
+            $sP = 'u';
+        }
 
-   		// owner
-   		$sP .= (($this->perms & 0x0100) ? 'r' : '-') .
-       	   	   (($this->perms & 0x0080) ? 'w' : '-') .
-          	   (($this->perms & 0x0040) ? (($this->perms & 0x0800) ? 's' : 'x' ) :
+        // owner
+        $sP .= (($this->perms & 0x0100) ? 'r' : '-') .
+                  (($this->perms & 0x0080) ? 'w' : '-') .
+                 (($this->perms & 0x0040) ? (($this->perms & 0x0800) ? 's' : 'x') :
                (($this->perms & 0x0800) ? 'S' : '-'));
 
-   		// group
-   		$sP .= (($this->perms & 0x0020) ? 'r' : '-') .
-          	   (($this->perms & 0x0010) ? 'w' : '-') .
-          	   (($this->perms & 0x0008) ? (($this->perms & 0x0400) ? 's' : 'x' ) :
+        // group
+        $sP .= (($this->perms & 0x0020) ? 'r' : '-') .
+                 (($this->perms & 0x0010) ? 'w' : '-') .
+                 (($this->perms & 0x0008) ? (($this->perms & 0x0400) ? 's' : 'x') :
                (($this->perms & 0x0400) ? 'S' : '-'));
 
-   		// world
-   		$sP .= (($this->perms & 0x0004) ? 'r' : '-') .
-          	   (($this->perms & 0x0002) ? 'w' : '-') .
-          	   (($this->perms & 0x0001) ? (($this->perms & 0x0200) ? 't' : 'x' ) :
+        // world
+        $sP .= (($this->perms & 0x0004) ? 'r' : '-') .
+                 (($this->perms & 0x0002) ? 'w' : '-') .
+                 (($this->perms & 0x0001) ? (($this->perms & 0x0200) ? 't' : 'x') :
                (($this->perms & 0x0200) ? 'T' : '-'));
 
         return $sP;
     }
 
-    function shortHandPerms() {
-		$octalperms = sprintf("%o",$this->perms);
+    public function shortHandPerms()
+    {
+        $octalperms = sprintf("%o", $this->perms);
 
-        return (substr($octalperms,-3));
-	}
+        return (substr($octalperms, -3));
+    }
 
-    function formatTime($type, $time_format="F d, Y, H:i:s") {
-    	$time = (strtolower($type) == 'a') ? $this->lastATime : $this->lastMTime;
+    public function formatTime($type, $time_format="F d, Y, H:i:s")
+    {
+        $time = (strtolower($type) == 'a') ? $this->lastATime : $this->lastMTime;
 
         return date($time_format, $time);
     }
 
     // Comparison Functions for usort comparisons
-    function cmpNames($a, $b) {
-    	$a1 = $a->name;
+    public function cmpNames($a, $b)
+    {
+        $a1 = $a->name;
         $b1 = $b->name;
 
-    	if ($a1 == $b1) {
-        	return 0;
+        if ($a1 == $b1) {
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 
-    function cmpNamesNatural($a, $b) {
-    	$a1 = $a->name;
+    public function cmpNamesNatural($a, $b)
+    {
+        $a1 = $a->name;
         $b1 = $b->name;
 
         return strnatcasecmp($a1, $b1);
     }
 
-    function cmpPaths($a, $b) {
-    	$a1 = $a->path;
+    public function cmpPaths($a, $b)
+    {
+        $a1 = $a->path;
         $b1 = $b->path;
 
-    	if ($a1 == $b1) {
-        	return 0;
+        if ($a1 == $b1) {
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 
-    function cmpPathsNatural($a, $b) {
-    	$a1 = $a->path;
+    public function cmpPathsNatural($a, $b)
+    {
+        $a1 = $a->path;
         $b1 = $b->path;
 
         return strnatcasecmp($a1, $b1);
     }
 
-    function cmpSize($a, $b) {
-    	$a1 = $a->size;
+    public function cmpSize($a, $b)
+    {
+        $a1 = $a->size;
         $b1 = $b->size;
 
         if ($a1 == $b1) {
-        	return 0;
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 
-    function cmpExt($a, $b) {
-    	$a1 = $a->ext;
+    public function cmpExt($a, $b)
+    {
+        $a1 = $a->ext;
         $b1 = $b->ext;
 
         if ($a1 == $b1) {
-        	return 0;
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 
-    function cmpLastA($a, $b) {
-    	$a1 = $a->lastATime;
+    public function cmpLastA($a, $b)
+    {
+        $a1 = $a->lastATime;
         $b1 = $b->lastATime;
 
         if ($a1 == $b1) {
-        	return 0;
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 
-    function cmpLastM($a, $b) {
-    	$a1 = $a->lastMTime;
+    public function cmpLastM($a, $b)
+    {
+        $a1 = $a->lastMTime;
         $b1 = $b->lastMTime;
 
         if ($a1 == $b1) {
-        	return 0;
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 
-    function cmpType($a, $b) {
-    	$a1 = $a->type;
+    public function cmpType($a, $b)
+    {
+        $a1 = $a->type;
         $b1 = $b->type;
 
         if ($a1 == $b1) {
-        	return 0;
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 
-    function cmpPerms($a, $b) {
-    	$a1 = $a->perms;
+    public function cmpPerms($a, $b)
+    {
+        $a1 = $a->perms;
         $b1 = $b->perms;
 
         if ($a1 == $b1) {
-        	return 0;
+            return 0;
         } else {
-        	return ($a1 > $b1) ? +1 : -1;
+            return ($a1 > $b1) ? +1 : -1;
         }
-	}
+    }
 }
 
-class fileList {
-	var $files        = array();
-    var $fileCount    = 0;
-    var $internal_ptr = 0;
+class fileList
+{
+    public $files        = array();
+    public $fileCount    = 0;
+    public $internal_ptr = 0;
 
-    function fileList() {
-    	$this->files = array();
+    public function fileList()
+    {
+        $this->files = array();
         $this->fileCount = 0;
         $this->internal_ptr = 0;
     }
 
-    function addFile($file) {
-    	if (!file_exists($file)) {
-    		return FALSE;
-    	}
-    	
-    	$this->fileCount++;
-    	$this->files[] = new fileObject($file);
-    	return TRUE;
+    public function addFile($file)
+    {
+        if (!file_exists($file)) {
+            return false;
+        }
+        
+        $this->fileCount++;
+        $this->files[] = new fileObject($file);
+        return true;
     }
 
-    function removeFile($file) {
-    	$this->fileCount--;
+    public function removeFile($file)
+    {
+        $this->fileCount--;
         $temparr = array();
 
         for ($x=0; $x<sizeof($this->files); $x++) {
-        	$temparr[$x] = $this->files[$x]->path;
+            $temparr[$x] = $this->files[$x]->path;
         }
 
         $key = array_search($file->path, $temparr);
 
-        if (($key !== FALSE) && ($key !== NULL)) {
-        	$this->files = array_merge(array_slice($this->files, 0, $key),
-            			   array_slice($this->files, $key+1, sizeof($this->files)-1));
-            return TRUE;
+        if (($key !== false) && ($key !== null)) {
+            $this->files = array_merge(
+                array_slice($this->files, 0, $key),
+                array_slice($this->files, $key+1, sizeof($this->files)-1)
+            );
+            return true;
         } else {
-        	return FALSE;
+            return false;
         }
     }
 
-    function clear() {
-    	$this->fileCount = 0;
-		$this->files = array();
-		
-		return TRUE;
+    public function clear()
+    {
+        $this->fileCount = 0;
+        $this->files = array();
+        
+        return true;
     }
     
-    function exists($index)	{
-    	if (sizeof($this->files[$index]) > 1) {
-    		return TRUE;
-    	} else {
-    		return FALSE;
-    	}
+    public function exists($index)
+    {
+        if (sizeof($this->files[$index]) > 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
     
-    function getFile($ptr=NULL) {
-    	if ($ptr !== NULL) {
-    		if ($this->exists($ptr)) {
-    			return $this->files[$ptr];
-    		} else {
-    			return FALSE;
-    		}
-    	} else {
-    		if ($this->internal_ptr < sizeof($this->files)) {
-    			$this->internal_ptr++;
-    			return $this->files[$this->internal_ptr-1];
-    		} else {
-    			return FALSE;
-    		}
-    	}
+    public function getFile($ptr=null)
+    {
+        if ($ptr !== null) {
+            if ($this->exists($ptr)) {
+                return $this->files[$ptr];
+            } else {
+                return false;
+            }
+        } else {
+            if ($this->internal_ptr < sizeof($this->files)) {
+                $this->internal_ptr++;
+                return $this->files[$this->internal_ptr-1];
+            } else {
+                return false;
+            }
+        }
     }
     
-    function getPointer() {
-    	return $this->internal_ptr;
+    public function getPointer()
+    {
+        return $this->internal_ptr;
     }
     
-    function resetPointer() {
-    	$this->internal_ptr = 0;
-    	return TRUE;
+    public function resetPointer()
+    {
+        $this->internal_ptr = 0;
+        return true;
     }
 
-    function reverseOrder() {
-    	$this->files = array_reverse($this->files);
-    	
-    	return TRUE;
+    public function reverseOrder()
+    {
+        $this->files = array_reverse($this->files);
+        
+        return true;
     }
 
-    function listSort($criteria, $order="ASCENDING") {
-    	switch ($criteria) {
+    public function listSort($criteria, $order="ASCENDING")
+    {
+        switch ($criteria) {
         case "name":
-        	usort($this->files, array("fileObject", "cmpNames"));
+            usort($this->files, array("fileObject", "cmpNames"));
         break;
         case "name_natural":
-        	usort($this->files, array("fileObject", "cmpNamesNatural"));
+            usort($this->files, array("fileObject", "cmpNamesNatural"));
         break;
         case "path":
-        	usort($this->files, array("fileObject", "cmpPaths"));
+            usort($this->files, array("fileObject", "cmpPaths"));
         break;
         case "path_natural":
-        	usort($this->files, array("fileObject", "cmpPathsNatural"));
+            usort($this->files, array("fileObject", "cmpPathsNatural"));
         break;
         case "size":
-        	usort($this->files, array("fileObject", "cmpSize"));
+            usort($this->files, array("fileObject", "cmpSize"));
         break;
         case "ext":
-        	usort($this->files, array("fileObject", "cmpExt"));
+            usort($this->files, array("fileObject", "cmpExt"));
         break;
         case "lastATime":
-        	usort($this->files, array("fileObject", "cmpLastA"));
+            usort($this->files, array("fileObject", "cmpLastA"));
         break;
         case "lastMTime":
-        	usort($this->files, array("fileObject", "cmpLastM"));
+            usort($this->files, array("fileObject", "cmpLastM"));
         break;
         case "type":
-        	usort($this->files, array("fileObject", "cmpType"));
+            usort($this->files, array("fileObject", "cmpType"));
         break;
-    	case "perms":
-        	usort($this->files, array("fileObject", "cmpPerms"));
+        case "perms":
+            usort($this->files, array("fileObject", "cmpPerms"));
         break;
         default:
-        	return FALSE;
+            return false;
         break;
         }
 
         if ($order == "DESCENDING") {
-        	$this->reverseOrder();
+            $this->reverseOrder();
         }
         
-        return TRUE;
+        return true;
     }
 
-    function merge($listb, $order="UNSORTED") {
-    	if (!is_array($listb->files)) {
-    		return FALSE;
-    	}
-    	
-    	$this->files = array_merge($this->files, $listb->files);
+    public function merge($listb, $order="UNSORTED")
+    {
+        if (!is_array($listb->files)) {
+            return false;
+        }
+        
+        $this->files = array_merge($this->files, $listb->files);
         $this->count += $listb->count;
 
         if ($order == "SORTED") {
-        	$this->listSort("name");
+            $this->listSort("name");
         }
         
-        return TRUE;
+        return true;
     }
 
-    function selectRandom() {
+    public function selectRandom()
+    {
         $key = rand(0, sizeof($this->files)-1);
 
         return $this->files[$key];
     }
 
-    function randomize() {
-    	shuffle($this->files);
-    	
-    	return TRUE;
+    public function randomize()
+    {
+        shuffle($this->files);
+        
+        return true;
     }
     
-    function search($type, $identifier) {
-    	for ($x=0; $x<sizeof($this->files); $x++) {
-    		switch ($type) {
-    		case 'name':
-    			if ($this->files[$x]->name == $identifier)
-    				return $this->files[$x];
-    			break;
-    		case 'path':
-    			if ($this->files[$x]->path == $identifier)
-    				return $this->files[$x];
-    			break;
-    		}
-    	}
-    	return false;
+    public function search($type, $identifier)
+    {
+        for ($x=0; $x<sizeof($this->files); $x++) {
+            switch ($type) {
+            case 'name':
+                if ($this->files[$x]->name == $identifier) {
+                    return $this->files[$x];
+                }
+                break;
+            case 'path':
+                if ($this->files[$x]->path == $identifier) {
+                    return $this->files[$x];
+                }
+                break;
+            }
+        }
+        return false;
     }
 
-    function filter($method, $key, $key2, $rule="EXCLUDE") {
-    	for ($x=0; $x<sizeof($this->files); $x++) {
-        	switch($method) {
+    public function filter($method, $key, $key2, $rule="EXCLUDE")
+    {
+        for ($x=0; $x<sizeof($this->files); $x++) {
+            switch ($method) {
             case "name":
-            	if ((($key2 != '*') && ($key == $this->files[$x]->name)) ||
-                (($key2 == '*') && (strpos($this->files[$x]->name, $key) !== FALSE))) {
-                	if ($rule == "EXCLUDE") {
-                    	$this->removeFile($this->files[$x]);
+                if ((($key2 != '*') && ($key == $this->files[$x]->name)) ||
+                (($key2 == '*') && (strpos($this->files[$x]->name, $key) !== false))) {
+                    if ($rule == "EXCLUDE") {
+                        $this->removeFile($this->files[$x]);
                         $x--;
                     }
                 } elseif ($rule == "INCLUDE") {
-                	$this->removeFile($this->files[$x]);
+                    $this->removeFile($this->files[$x]);
                     $x--;
                 }
             break;
             case "path":
-            	if ((($key2 != '*') && ($key == $this->files[$x]->path)) ||
-                (($key2 == '*') && (strpos($this->files[$x]->path, $key) !== FALSE))) {
-                	if ($rule == "EXCLUDE") {
-                    	$this->removeFile($this->files[$x]);
+                if ((($key2 != '*') && ($key == $this->files[$x]->path)) ||
+                (($key2 == '*') && (strpos($this->files[$x]->path, $key) !== false))) {
+                    if ($rule == "EXCLUDE") {
+                        $this->removeFile($this->files[$x]);
                         $x--;
                     }
                 } elseif ($rule == "INCLUDE") {
-                	$this->removeFile($this->files[$x]);
+                    $this->removeFile($this->files[$x]);
                     $x--;
                 }
             break;
             case "ext":
-            	if ((($key2 != '*') && ($key == $this->files[$x]->ext)) ||
-                (($key2 == '*') && (strpos($this->files[$x]->ext, $key) !== FALSE))) {
-                	if ($rule == "EXCLUDE") {
-                    	$this->removeFile($this->files[$x]);
+                if ((($key2 != '*') && ($key == $this->files[$x]->ext)) ||
+                (($key2 == '*') && (strpos($this->files[$x]->ext, $key) !== false))) {
+                    if ($rule == "EXCLUDE") {
+                        $this->removeFile($this->files[$x]);
                         $x--;
                     }
                 } elseif ($rule == "INCLUDE") {
-                	$this->removeFile($this->files[$x]);
+                    $this->removeFile($this->files[$x]);
                     $x--;
                 }
             break;
             case "size":
-            	if (($this->files[$x]->size >= $key) && ($this->files[$x]->size <= $key2)) {
-                	if ($rule == "EXCLUDE") {
-                    	$this->removeFile($this->files[$x]);
+                if (($this->files[$x]->size >= $key) && ($this->files[$x]->size <= $key2)) {
+                    if ($rule == "EXCLUDE") {
+                        $this->removeFile($this->files[$x]);
                         $x--;
                     }
                 } elseif ($rule == "INCLUDE") {
-                	$this->removeFile($this->files[$x]);
+                    $this->removeFile($this->files[$x]);
                     $x--;
                 }
             break;
             case "type":
-            	if ($key == $this->files[$x]->type) {
-                	if ($rule == "EXCLUDE") {
-                    	$this->removeFile($this->files[$x]);
+                if ($key == $this->files[$x]->type) {
+                    if ($rule == "EXCLUDE") {
+                        $this->removeFile($this->files[$x]);
                         $x--;
                     }
                 } elseif ($rule == "INCLUDE") {
-                	$this->removeFile($this->files[$x]);
+                    $this->removeFile($this->files[$x]);
                     $x--;
                 }
             break;
             default:
-            	return FALSE;
+                return false;
             break;
             }
         }
-    return TRUE;
+        return true;
     }
 }
 
-class directoryObject {
-	var $originalDir;
-	var $currentDir;
-    var $rootDir;
-    var $extendedPath;
-    var $recursiveLevel;
+class directoryObject
+{
+    public $originalDir;
+    public $currentDir;
+    public $rootDir;
+    public $extendedPath;
+    public $recursiveLevel;
 
-    function directoryObject($root=NULL) {
-    	$this->currentDir = getcwd();
+    public function directoryObject($root=null)
+    {
+        $this->currentDir = getcwd();
         $this->originalDir = $this->currentDir;
-        if ($root === NULL) {
-        	$this->rootDir = $this->currentDir;
+        if ($root === null) {
+            $this->rootDir = $this->currentDir;
         } else {
-        	$this->rootDir = $root;
+            $this->rootDir = $root;
         }
         $this->extendedPath = '';
         $this->recursiveLevel = 0;
     }
 
-    function traverse($dir=NULL) {
-    	$fileList = new fileList;
-    	if ($dir === NULL) {
-        	if (!$dir = @opendir($this->rootDir)) {
-        		return FALSE;
-        	}
+    public function traverse($dir=null)
+    {
+        $fileList = new fileList;
+        if ($dir === null) {
+            if (!$dir = @opendir($this->rootDir)) {
+                return false;
+            }
         } elseif ($this->recursiveLevel == 0) {
-        	if (!$dir = @opendir($dir)) {
-        		return FALSE;
-        	}
+            if (!$dir = @opendir($dir)) {
+                return false;
+            }
         }
 
-    	while (($file = readdir($dir)) != FALSE) {
-        	if (($file != '.') && ($file != '..')) {
-            	if (is_dir($this->rootDir.$this->extendedPath.'/'.$file)) {
+        while (($file = readdir($dir)) != false) {
+            if (($file != '.') && ($file != '..')) {
+                if (is_dir($this->rootDir.$this->extendedPath.'/'.$file)) {
                     $previousPath = $this->extendedPath;
                     $previousDir = $this->currentDir;
-					$this->extendedPath .= "/$file";
+                    $this->extendedPath .= "/$file";
                     $this->currentDir = $this->rootDir.$this->extendedPath;
                     chdir($this->rootDir.$this->extendedPath);
                     $this->recursiveLevel++;
@@ -524,14 +564,14 @@ class directoryObject {
 
                     $fileList->merge($fileList2);
 
-                	chdir($this->previousDir);
+                    chdir($this->previousDir);
                     $this->extendedPath = $previousPath;
                     $this->currentDir = $previousDir;
                     $this->recursiveLevel--;
                 } else {
                     $fileList->addFile($this->rootDir.$this->extendedPath.'/'.$file);
                 }
-        	}
+            }
         }
         $this->currentDir = $this->originalDir;
         chdir($this->currentDir);
@@ -539,57 +579,58 @@ class directoryObject {
         return $fileList;
     }
 
-    function read($dir=NULL) {
-    	$fileList = new fileList;
-    	if ($dir === NULL) {
-        	if (!$dir = @opendir($this->rootDir)) {
-        		return FALSE;
-        	}
+    public function read($dir=null)
+    {
+        $fileList = new fileList;
+        if ($dir === null) {
+            if (!$dir = @opendir($this->rootDir)) {
+                return false;
+            }
         }
 
-        while (($file = readdir($dir)) != FALSE) {
-        	if (($file != '.') && ($file != '..')) {
-           		if (!$fileList->addFile($this->rootDir.'/'.$file)) {
-           			return FALSE;
-           		}
+        while (($file = readdir($dir)) != false) {
+            if (($file != '.') && ($file != '..')) {
+                if (!$fileList->addFile($this->rootDir.'/'.$file)) {
+                    return false;
+                }
             }
         }
 
         return $fileList;
     }
 
-    function deleteFile($file) {
-    	if (is_dir($file)) {
-        	$dir = opendir($file);
+    public function deleteFile($file)
+    {
+        if (is_dir($file)) {
+            $dir = opendir($file);
             while (($newfile = readdir($dir)) != false) {
-            	if (($newfile != '.') && ($newfile != '..')) {
-                	if (!$this->deleteFile($file)) {
-                		return FALSE;
-                	}
+                if (($newfile != '.') && ($newfile != '..')) {
+                    if (!$this->deleteFile($file)) {
+                        return false;
+                    }
                 }
             }
             closedir($dir);
             rmdir($file);
         } elseif (file_exists($file)) {
-        	return unlink($file);
+            return unlink($file);
         }
-        return TRUE;
+        return true;
     }
     
-    function uploadFile($postName) {
-    	$filename = basename($_FILES[$postName]['name']);
-    	$filesize = $_FILES[$postName]['size'];
-    	
-    	if ($filesize <= 0) {
-    		return FALSE;
-    	} elseif (file_exists($this->rootDir.'/'.$filename)) {
-    		return FALSE;
-    	} elseif (!@move_uploaded_file($_FILES[$postName]['tmp_name'], $this->rootDir.'/'.$filename)) {
-    		return FALSE;
-    	} else {
-    		return TRUE;
-    	}
+    public function uploadFile($postName)
+    {
+        $filename = basename($_FILES[$postName]['name']);
+        $filesize = $_FILES[$postName]['size'];
+        
+        if ($filesize <= 0) {
+            return false;
+        } elseif (file_exists($this->rootDir.'/'.$filename)) {
+            return false;
+        } elseif (!@move_uploaded_file($_FILES[$postName]['tmp_name'], $this->rootDir.'/'.$filename)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
-
-?>

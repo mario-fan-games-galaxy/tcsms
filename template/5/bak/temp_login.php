@@ -1,10 +1,11 @@
 <?php
 
-class template_login {
-
-function register ($reg_url, $token) {
-global $STD;
-return <<<HTML
+class template_login
+{
+    public function register($reg_url, $token)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$reg_url}">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -59,11 +60,12 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
+    }
 
-function lost_password ($reg_url, $token) {
-global $STD;
-return <<<HTML
+    public function lost_password($reg_url, $token)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$reg_url}">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -84,11 +86,12 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
+    }
 
-function lost_username ($reg_url, $token) {
-global $STD;
-return <<<HTML
+    public function lost_username($reg_url, $token)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$reg_url}">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -108,11 +111,12 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
+    }
 
-function change_password ($reg_url, $token, $cookie) {
-global $STD;
-return <<<HTML
+    public function change_password($reg_url, $token, $cookie)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$reg_url}">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -135,8 +139,5 @@ return <<<HTML
 <div class="sformstrip" style="text-align:center"><input type="submit" class="button" value="Submit" /></div>
 </div>
 HTML;
+    }
 }
-
-}
-
-?>

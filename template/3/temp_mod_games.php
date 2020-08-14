@@ -1,10 +1,11 @@
 <?php
 
-class template_mod_games {
-
-function resdb_row ($res) {
-global $STD;
-return <<<HTML
+class template_mod_games
+{
+    public function resdb_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;border-right:1px solid gray" width="100" align="center">
     <a id="res_{$res['rid']}" />
@@ -63,11 +64,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function resdb_page ($res) {
-global $STD;
-return <<<HTML
+    public function resdb_page($res)
+    {
+        global $STD;
+        return <<<HTML
 <script type="text/javascript">
   <!--
   function version_history() {
@@ -202,11 +204,12 @@ return <<<HTML
   </div>
   <br />
 HTML;
-}
+    }
 
-function public_row ($res, $cat) {
-global $STD;
-return <<<HTML
+    public function public_row($res, $cat)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;border-right:1px solid gray" width="100" align="center">
     <a id="res_{$res['rid']}" />
@@ -264,11 +267,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function manage_row ($res, $cat) {
-global $STD;
-return <<<HTML
+    public function manage_row($res, $cat)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;border-right:1px solid gray" width="100" align="center">
     <a id="res_{$res['rid']}" />
@@ -326,11 +330,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function manage_page ($res, $token, $max_size) {
-global $STD;
-return <<<HTML
+    public function manage_page($res, $token, $max_size)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$STD->tags['root_url']}act=user&amp;param=07" enctype="multipart/form-data">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -429,11 +434,12 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
+    }
 
-function submit_form ($res, $max_size) {
-global $STD;
-return <<<HTML
+    public function submit_form($res, $max_size)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sformstrip">Fill in information about your submission.</div>
 <table class="sformtable" cellspacing="1">
 <tr>
@@ -475,11 +481,12 @@ return <<<HTML
 </tr>
 </table>
 HTML;
-}
+    }
 
-function game_reviews_row ($rev) {
-global $STD;
-return <<<HTML
+    public function game_reviews_row($rev)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformleftw">
     <b class="highlight">{$rev['author']}</b>
@@ -494,42 +501,47 @@ return <<<HTML
 </tr>
 
 HTML;
-}
+    }
 
-function news_update_block_header ($name) {
-global $STD;
-return <<<HTML
+    public function news_update_block_header($name)
+    {
+        global $STD;
+        return <<<HTML
 <div class='newsstrip'>Games</div>
 <table class='sformtable' cellspacing='1'>
 HTML;
-}
+    }
 
-function news_update_block_footer () {
-global $STD;
-return <<<HTML
+    public function news_update_block_footer()
+    {
+        global $STD;
+        return <<<HTML
 </table>
 HTML;
-}
+    }
 
-function news_upd_update_block_header ($name, $id) {
-global $STD;
-return <<<HTML
+    public function news_upd_update_block_header($name, $id)
+    {
+        global $STD;
+        return <<<HTML
 <div class="newssubstrip" style="text-align: center">
   <a href="javascript:show_hide('$id');" style="text-decoration:underline">Click to see updated $name</a></div>
 <table id="$id" class='sformtable' style='display:none' cellspacing='1'>
 HTML;
-}
+    }
 
-function news_upd_update_block_footer () {
-global $STD;
-return <<<HTML
+    public function news_upd_update_block_footer()
+    {
+        global $STD;
+        return <<<HTML
 </table>
 HTML;
-}
+    }
 
-function news_update_block_row ($res) {
-global $STD;
-return <<<HTML
+    public function news_update_block_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td width='100' height='100' rowspan='3' align='center'>{$res['thumbnail']}</td>
   <td class='newsleftw' colspan='2' height='20'><a href='{$res['url']}'><b>{$res['title']}</b></a></td>
@@ -542,6 +554,5 @@ return <<<HTML
   <td class='newsleftw' colspan='2' valign='top'>{$res['description']}</td>
 </tr>
 HTML;
-}
-
+    }
 }

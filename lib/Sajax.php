@@ -1,153 +1,159 @@
 <?php
 
-class Sajax {
+class Sajax
+{
 
-	/*  
-	 * GLOBALS AND DEFAULTS
-	 *
-	 */ 
-	var $sajax_version = '0.12';	
-	var $sajax_debug_mode = 0;
-	var $sajax_export_list = array();
-	var $sajax_allow_list = array(); //
-	var $sajax_request_type = 'GET';
-	var $sajax_remote_uri = '';
-	var $sajax_js_has_been_shown = 0; //
-	var $sajax_failure_redirect = '';
-	
-	/*
-	 * CODE
-	 *
-	 */
-	
-	//
-	// Initialize the Sajax library.
-	//
-	function sajax_init() {
-	
-		$this->sajax_remote_uri = $this->sajax_get_my_uri();
-	}
-	
-	function sajax_set_request_type($type) {
-	
-		$this->sajax_request_type = $type;
-	}
-	
-	//
-	// Helper function to return the script's own URI. 
-	// 
-	function sajax_get_my_uri() {
-		return $_SERVER['REQUEST_URI'];
-	}
-	
-	//
-	// Helper function to return an eval()-usable representation
-	// of an object in JavaScript.
-	// 
-	// Added 0.12
-	//
-	function sajax_get_js_repr($value) {
-		$type = gettype($value);
-		
-		if ($type == "boolean") {
-			return ($value) ? "Boolean(true)" : "Boolean(false)";
-		} 
-		elseif ($type == "integer") {
-			return "parseInt($value)";
-		} 
-		elseif ($type == "double") {
-			return "parseFloat($value)";
-		} 
-		elseif ($type == "array" || $type == "object" ) {
-			//
-			// XXX Arrays with non-numeric indices are not
-			// permitted according to ECMAScript, yet everyone
-			// uses them.. We'll use an object.
-			// 
-			$s = "{ ";
-			if ($type == "object") {
-				$value = get_object_vars($value);
-			} 
-			foreach ($value as $k=>$v) {
-				$esc_key = $this->sajax_esc($k);
-				if (is_numeric($k)) 
-					$s .= "$k: " . $this->sajax_get_js_repr($v) . ", ";
-				else
-					$s .= "\"$esc_key\": " . $this->sajax_get_js_repr($v) . ", ";
-			}
-			if (count($value))
-				$s = substr($s, 0, -2);
-			return $s . " }";
-		} 
-		else {
-			$esc_val = $this->sajax_esc($value);
-			$s = "'$esc_val'";
-			return $s;
-		}
-	}	
-	
-	function sajax_handle_client_request() {
-		
-		$mode = "";
-		
-		if (! empty($_GET["rs"])) 
-			$mode = "get";
-		
-		if (!empty($_POST["rs"]))
-			$mode = "post";
-			
-		if (empty($mode)) 
-			return;
-		
-		$target = "";
-		
-		if ($mode == "get") {
-			// Bust cache in the head
-			header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");    // Date in the past
-			header ("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-			// always modified
-			header ("Cache-Control: no-cache, must-revalidate");  // HTTP/1.1
-			header ("Pragma: no-cache");                          // HTTP/1.0
-			$func_name = $_GET["rs"];
-			if (! empty($_GET["rsargs"])) 
-				$args = $_GET["rsargs"];
-			else
-				$args = array();
-		}
-		else {
-			$func_name = $_POST["rs"];
-			if (! empty($_POST["rsargs"])) 
-				$args = $_POST["rsargs"];
-			else
-				$args = array();
-		}
-		
-		if (! in_array($func_name, $this->sajax_export_list))
-			echo "-:$func_name not callable";
-		else {
-			echo "+:";
-			// Addition to allow class members to be called via special __ syntax
-			if (strpos($func_name, '__') !== false) {
-				$funcdata = explode('__', $func_name);
-				$result = call_user_func_array(array($funcdata[0],$funcdata[1]), $args);
-			} else {
-				$result = call_user_func_array($func_name, $args);
-			}
-			//$result = call_user_func_array($func_name, $args);
-			echo "var res = " . trim($this->sajax_get_js_repr($result)) . "; res;";
-		}
-		exit;
-	}
-	
-	function sajax_get_common_js() {
-		
-		$t = strtoupper($this->sajax_request_type);
-		if ($t != "" && $t != "GET" && $t != "POST") 
-			return "// Invalid type: $t.. \n\n";
-		
-		$dbg_mode = $this->sajax_debug_mode ? "true" : "false";
-	
-		$html = "
+    /*
+     * GLOBALS AND DEFAULTS
+     *
+     */
+    public $sajax_version = '0.12';
+    public $sajax_debug_mode = 0;
+    public $sajax_export_list = array();
+    public $sajax_allow_list = array(); //
+    public $sajax_request_type = 'GET';
+    public $sajax_remote_uri = '';
+    public $sajax_js_has_been_shown = 0; //
+    public $sajax_failure_redirect = '';
+    
+    /*
+     * CODE
+     *
+     */
+    
+    //
+    // Initialize the Sajax library.
+    //
+    public function sajax_init()
+    {
+        $this->sajax_remote_uri = $this->sajax_get_my_uri();
+    }
+    
+    public function sajax_set_request_type($type)
+    {
+        $this->sajax_request_type = $type;
+    }
+    
+    //
+    // Helper function to return the script's own URI.
+    //
+    public function sajax_get_my_uri()
+    {
+        return $_SERVER['REQUEST_URI'];
+    }
+    
+    //
+    // Helper function to return an eval()-usable representation
+    // of an object in JavaScript.
+    //
+    // Added 0.12
+    //
+    public function sajax_get_js_repr($value)
+    {
+        $type = gettype($value);
+        
+        if ($type == "boolean") {
+            return ($value) ? "Boolean(true)" : "Boolean(false)";
+        } elseif ($type == "integer") {
+            return "parseInt($value)";
+        } elseif ($type == "double") {
+            return "parseFloat($value)";
+        } elseif ($type == "array" || $type == "object") {
+            //
+            // XXX Arrays with non-numeric indices are not
+            // permitted according to ECMAScript, yet everyone
+            // uses them.. We'll use an object.
+            //
+            $s = "{ ";
+            if ($type == "object") {
+                $value = get_object_vars($value);
+            }
+            foreach ($value as $k=>$v) {
+                $esc_key = $this->sajax_esc($k);
+                if (is_numeric($k)) {
+                    $s .= "$k: " . $this->sajax_get_js_repr($v) . ", ";
+                } else {
+                    $s .= "\"$esc_key\": " . $this->sajax_get_js_repr($v) . ", ";
+                }
+            }
+            if (count($value)) {
+                $s = substr($s, 0, -2);
+            }
+            return $s . " }";
+        } else {
+            $esc_val = $this->sajax_esc($value);
+            $s = "'$esc_val'";
+            return $s;
+        }
+    }
+    
+    public function sajax_handle_client_request()
+    {
+        $mode = "";
+        
+        if (! empty($_GET["rs"])) {
+            $mode = "get";
+        }
+        
+        if (!empty($_POST["rs"])) {
+            $mode = "post";
+        }
+            
+        if (empty($mode)) {
+            return;
+        }
+        
+        $target = "";
+        
+        if ($mode == "get") {
+            // Bust cache in the head
+            header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");    // Date in the past
+            header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+            // always modified
+            header("Cache-Control: no-cache, must-revalidate");  // HTTP/1.1
+            header("Pragma: no-cache");                          // HTTP/1.0
+            $func_name = $_GET["rs"];
+            if (! empty($_GET["rsargs"])) {
+                $args = $_GET["rsargs"];
+            } else {
+                $args = array();
+            }
+        } else {
+            $func_name = $_POST["rs"];
+            if (! empty($_POST["rsargs"])) {
+                $args = $_POST["rsargs"];
+            } else {
+                $args = array();
+            }
+        }
+        
+        if (! in_array($func_name, $this->sajax_export_list)) {
+            echo "-:$func_name not callable";
+        } else {
+            echo "+:";
+            // Addition to allow class members to be called via special __ syntax
+            if (strpos($func_name, '__') !== false) {
+                $funcdata = explode('__', $func_name);
+                $result = call_user_func_array(array($funcdata[0],$funcdata[1]), $args);
+            } else {
+                $result = call_user_func_array($func_name, $args);
+            }
+            //$result = call_user_func_array($func_name, $args);
+            echo "var res = " . trim($this->sajax_get_js_repr($result)) . "; res;";
+        }
+        exit;
+    }
+    
+    public function sajax_get_common_js()
+    {
+        $t = strtoupper($this->sajax_request_type);
+        if ($t != "" && $t != "GET" && $t != "POST") {
+            return "// Invalid type: $t.. \n\n";
+        }
+        
+        $dbg_mode = $this->sajax_debug_mode ? "true" : "false";
+    
+        $html = "
 		// remote scripting library
 		// (c) copyright 2005 modernmethod, inc
 		var sajax_debug_mode = $dbg_mode;
@@ -295,27 +301,28 @@ class Sajax {
 			delete x;
 			return true;
 		}";
-		
-		return $html;
-	}
-	
-	function sajax_show_common_js() {
-		echo $this->sajax_get_common_js();
-	}
-	
-	// javascript escape a value
-	function sajax_esc($val)
-	{
-		$val = str_replace("\\", "\\\\", $val);
-		$val = str_replace("\r", "\\r", $val);
-		$val = str_replace("\n", "\\n", $val);
-		$val = str_replace("'", "\\'", $val);
-		return str_replace('"', '\\"', $val);
-	}
+        
+        return $html;
+    }
+    
+    public function sajax_show_common_js()
+    {
+        echo $this->sajax_get_common_js();
+    }
+    
+    // javascript escape a value
+    public function sajax_esc($val)
+    {
+        $val = str_replace("\\", "\\\\", $val);
+        $val = str_replace("\r", "\\r", $val);
+        $val = str_replace("\n", "\\n", $val);
+        $val = str_replace("'", "\\'", $val);
+        return str_replace('"', '\\"', $val);
+    }
 
-	function sajax_get_one_stub($func_name) {
-		
-		$html = "
+    public function sajax_get_one_stub($func_name)
+    {
+        $html = "
 		// wrapper for {$func_name}
 		
 		function x_{$func_name}() {
@@ -323,48 +330,46 @@ class Sajax {
 				x_{$func_name}.arguments);
 		}";
 
-		return $html;
-	}
-	
-	function sajax_show_one_stub($func_name) {
-		echo $this->sajax_get_one_stub($func_name);
-	}
-	
-	function sajax_export() {
-		
-		$n = func_num_args();
-		for ($i = 0; $i < $n; $i++) {
-			$this->sajax_export_list[] = func_get_arg($i);
-		}
-	}
-	
-	// Removed 0.12
-	/*function sajax_allow() {
-		
-		$n = func_num_args();
-		for ($i = 0; $i < $n; $i++) {
-			$this->sajax_allow_list[] = func_get_arg($i);
-		}
-	}*/
-	
-	function sajax_get_javascript()
-	{
-		
-		$html = "";
-		if (! $this->sajax_js_has_been_shown) {
-			$html .= $this->sajax_get_common_js();
-			$this->sajax_js_has_been_shown = 1;
-		}
-		foreach ($this->sajax_export_list as $func) {
-			$html .= $this->sajax_get_one_stub($func);
-		}
-		return $html;
-	}
-	
-	function sajax_show_javascript()
-	{
-		echo $this->sajax_get_javascript();
-	}
-}
+        return $html;
+    }
+    
+    public function sajax_show_one_stub($func_name)
+    {
+        echo $this->sajax_get_one_stub($func_name);
+    }
+    
+    public function sajax_export()
+    {
+        $n = func_num_args();
+        for ($i = 0; $i < $n; $i++) {
+            $this->sajax_export_list[] = func_get_arg($i);
+        }
+    }
+    
+    // Removed 0.12
+    /*function sajax_allow() {
 
-?>
+        $n = func_num_args();
+        for ($i = 0; $i < $n; $i++) {
+            $this->sajax_allow_list[] = func_get_arg($i);
+        }
+    }*/
+    
+    public function sajax_get_javascript()
+    {
+        $html = "";
+        if (! $this->sajax_js_has_been_shown) {
+            $html .= $this->sajax_get_common_js();
+            $this->sajax_js_has_been_shown = 1;
+        }
+        foreach ($this->sajax_export_list as $func) {
+            $html .= $this->sajax_get_one_stub($func);
+        }
+        return $html;
+    }
+    
+    public function sajax_show_javascript()
+    {
+        echo $this->sajax_get_javascript();
+    }
+}

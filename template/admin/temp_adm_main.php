@@ -1,10 +1,11 @@
 <?php
 
-class template_adm_main {
-
-function main_page ($notepad, $url, $data, $delurl, $uid) {
-global $STD;
-$ret = <<<HTML
+class template_adm_main
+{
+    public function main_page($notepad, $url, $data, $delurl, $uid)
+    {
+        global $STD;
+        $ret = <<<HTML
 From the ACP you'll be able to manage users and submissions, update the front page, respond to messages, and control how the site operates.  You should always log out when you finish.
 <br /><br />
 <div align="center">
@@ -23,23 +24,23 @@ From the ACP you'll be able to manage users and submissions, update the front pa
 </table><br /><div class="rowfield" style="width:100%">
 <table class="rowtable" cellspacing="1" width="100%">
 HTML;
-foreach ($data as $dat) {
-		// rowcell2
-		$ret .= "<tr>
+        foreach ($data as $dat) {
+            // rowcell2
+            $ret .= "<tr>
 		<td width=\"12%\" class=\"rowtitle\" align=\"right\" valign=\"top\"><a href=\"{$dat['uidurl']}\">{$dat['name']}</a></td>
 		<td class=\"rowcell2 canquote\" onClick=\"quote('{$dat['name']}', {$dat['id']});\">{$dat['message']}</td>
 		<td width=\"23%\" class=\"rowtitle\" valign=\"top\">{$dat['date']}<div style=\"display:none\" id=\"msg{$dat['id']}\">{$dat['raw']}</div>";
-		if ($dat['uid'] == $uid) 
-			$ret .= " <a title=\"Delete\" href=\"{$delurl}&id={$dat['id']}\" style=\"color:maroon\" onClick=\"if(!confirm('Are you sure?'))return false;\">X</a>";
-		$ret .= "</td></tr>";
-}
-$ret .= <<<HTML
+            if ($dat['uid'] == $uid) {
+                $ret .= " <a title=\"Delete\" href=\"{$delurl}&id={$dat['id']}\" style=\"color:maroon\" onClick=\"if(!confirm('Are you sure?'))return false;\">X</a>";
+            }
+            $ret .= "</td></tr>";
+        }
+        $ret .= <<<HTML
 </table></div>
 </div>
 HTML;
-return $ret;
-}
-
+        return $ret;
+    }
 }
 /*CREATE TABLE `tcsms`.`tsms_chat` (
 `id` INT UNSIGNED NULL DEFAULT NULL AUTO_INCREMENT PRIMARY KEY ,
@@ -47,4 +48,3 @@ return $ret;
 `date` INT NOT NULL ,
 `message` TEXT NOT NULL
 ) ENGINE = MYISAM ;*/
-?>

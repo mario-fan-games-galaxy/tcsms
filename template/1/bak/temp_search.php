@@ -1,27 +1,30 @@
 <?php
 
-class template_search {
-
-function simple_results_header () {
-global $STD;
-return <<<HTML
+class template_search
+{
+    public function simple_results_header()
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <table class="sformtable" cellspacing="0" cellpadding="0">
 HTML;
-}
+    }
 
-function simple_results_footer ($pages) {
-global $STD;
-return <<<HTML
+    public function simple_results_footer($pages)
+    {
+        global $STD;
+        return <<<HTML
 </table>
 <div class="sformstrip">Pages: {$pages}</div>
 </div>
 HTML;
-}
+    }
 
-function simple_results_row ($res) {
-global $STD;
-return <<<HTML
+    public function simple_results_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td style="border-bottom:1px solid gray" align="left">
     <div class="sformstrip"><span class="highlight">{$res['full_name']}</span> <b>-></b> 
@@ -45,11 +48,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function advanced_search ($type_list) {
-global $STD;
-return <<<HTML
+    public function advanced_search($type_list)
+    {
+        global $STD;
+        return <<<HTML
 <script type='text/javascript'>
 <!--
 function load_page_cb(newdata) {
@@ -87,37 +91,37 @@ function load_page(num) {
 </div>
 </form>
 HTML;
-}
+    }
 
-function constraint_block ($rows) {
-global $STD;
-return <<<HTML
+    public function constraint_block($rows)
+    {
+        global $STD;
+        return <<<HTML
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 {$rows}
 </table>
 HTML;
-}
+    }
 
-function constraint_row ($name, $select) {
-global $STD;
-return <<<HTML
+    public function constraint_row($name, $select)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td width="35%">&nbsp; &nbsp; {$name}</td>
   <td>{$select}</td>
 </tr>
 HTML;
-}
+    }
 
-function search_tip ($msg) {
-global $STD;
-return <<<HTML
+    public function search_tip($msg)
+    {
+        global $STD;
+        return <<<HTML
 <div align="center">
 <div class="message"><b>Search Tip:</b> $msg</div>
 </div>
 <br />
 HTML;
+    }
 }
-
-}
-
-?>

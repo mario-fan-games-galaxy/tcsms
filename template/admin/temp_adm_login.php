@@ -1,10 +1,11 @@
 <?php
 
-class template_adm_login {
-
-function login_screen ($login_url, $token, $error) {
-global $STD;
-return <<<HTML
+class template_adm_login
+{
+    public function login_screen($login_url, $token, $error)
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$login_url}">
 <div style="width:70%; margin-left:auto; margin-right:auto;">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -49,11 +50,12 @@ Enter your login details to continue
 <br />
 {$error}
 HTML;
-}
+    }
 
-function error_msg ($msg) {
-global $STD;
-return <<<HTML
+    public function error_msg($msg)
+    {
+        global $STD;
+        return <<<HTML
 <div style="width:70%; margin-left:auto; margin-right:auto;">
 <table border="0" cellpadding="4" cellspacing="0" width="100%" style="border:2px solid #000000;">
 <tr>
@@ -69,8 +71,5 @@ return <<<HTML
 </table>
 </div>
 HTML;
+    }
 }
-
-}
-
-?>

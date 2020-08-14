@@ -1,10 +1,11 @@
 <?php
 
-class template_login {
-
-function register ($reg_url, $token) {
-global $STD;
-return <<<HTML
+class template_login
+{
+    public function register($reg_url, $token)
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$reg_url}">
 <input type="hidden" name="security_token" value="{$token}" />
 <table class="tableheader">
@@ -67,8 +68,5 @@ return <<<HTML
 </form>
 </div>
 HTML;
+    }
 }
-
-}
-
-?>

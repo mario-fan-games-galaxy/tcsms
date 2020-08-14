@@ -1,17 +1,18 @@
 <?php
 
-class template_main {
-
-
-function news_header () {
-global $STD;
-return <<<HTML
+class template_main
+{
+    public function news_header()
+    {
+        global $STD;
+        return <<<HTML
 HTML;
-}
+    }
 
-function news_archive_header ($from, $to) {
-global $STD;
-return <<<HTML
+    public function news_archive_header($from, $to)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$STD->tags['root_url']}act=main&amp;param=08">
 <div class="sformstrip">Select a range of updates</div>
@@ -26,18 +27,20 @@ return <<<HTML
 </div>
 <br />
 HTML;
-}
+    }
 
-function news_footer () {
-global $STD;
-return <<<HTML
+    public function news_footer()
+    {
+        global $STD;
+        return <<<HTML
 <a href="{$STD->tags['root_url']}act=main&amp;param=08">Updates Archive</a>
 HTML;
-}
+    }
 
-function news_row ($news) {
-global $STD;
-return <<<HTML
+    public function news_row($news)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <table class="sformtable" cellspacing="0" cellpadding="3">
 <tr>
@@ -70,105 +73,118 @@ return <<<HTML
 </div>
 <br />
 HTML;
-}
+    }
 
-function news_update_header () {
-global $STD;
-return <<<HTML
+    public function news_update_header()
+    {
+        global $STD;
+        return <<<HTML
 <span class='highlight'><b>Recent Additions</b></span>
 <br /><div class='sform'>
 HTML;
-}
+    }
 
-function news_update_footer () {
-global $STD;
-return <<<HTML
+    public function news_update_footer()
+    {
+        global $STD;
+        return <<<HTML
 </div>
 HTML;
-}
+    }
 
-function news_no_updates () {
-global $STD;
-return <<<HTML
+    public function news_no_updates()
+    {
+        global $STD;
+        return <<<HTML
 <table class='sformtable' cellspacing='1'><tr>
 <td height='25' class='sformstrip' style='text-align:center'>No recent additions since last update.</td>
 </tr></table>
 HTML;
-}
+    }
 
-function news_gen_mod_header ($name) {
-global $STD;
-return <<<HTML
+    public function news_gen_mod_header($name)
+    {
+        global $STD;
+        return <<<HTML
 <div class='sformstrip'>$name</div>
 HTML;
-}
+    }
 
-function news_gen_mod_footer () {
-global $STD;
-return <<<HTML
+    public function news_gen_mod_footer()
+    {
+        global $STD;
+        return <<<HTML
 HTML;
-}
+    }
 
-function news_gen_block_header ($name) {
-global $STD;
-return <<<HTML
+    public function news_gen_block_header($name)
+    {
+        global $STD;
+        return <<<HTML
 <table class='sformtable' cellspacing='1'>
 HTML;
-}
+    }
 
-function news_gen_block_header_col ($name, $id) {
-global $STD;
-return <<<HTML
+    public function news_gen_block_header_col($name, $id)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sformsubstrip" style="text-align: center">
   <a href="javascript:show_hide('$id');" style="text-decoration:underline">Click to see newly added $name</a></div>
 <table id="$id" class='sformtable' style='display:none' cellspacing='1'>
 HTML;
-}
+    }
 
-function news_gen_block_footer () {
-global $STD;
-return <<<HTML
+    public function news_gen_block_footer()
+    {
+        global $STD;
+        return <<<HTML
 </table>
 HTML;
-}
+    }
 
-function news_gen_updblock_header ($name) {
-global $STD;
-return <<<HTML
+    public function news_gen_updblock_header($name)
+    {
+        global $STD;
+        return <<<HTML
 <div class='sformsubstrip'>Updated $name</div>
 <table class='sformtable' cellspacing='1'>
 HTML;
-}
+    }
 
-function news_gen_updblock_header_col ($name, $id) {
-global $STD;
-return <<<HTML
+    public function news_gen_updblock_header_col($name, $id)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sformsubstrip" style="text-align: center">
   <a href="javascript:show_hide('$id');" style="text-decoration:underline">Click to see updated $name</a></div>
 <table id="$id" class='sformtable' style='display:none' cellspacing='1'>
 HTML;
-}
+    }
 
-function news_gen_updblock_footer () {
-global $STD;
-return <<<HTML
+    public function news_gen_updblock_footer()
+    {
+        global $STD;
+        return <<<HTML
 </table>
 HTML;
-}
+    }
 
-function news_gen_block_row ($res) {
-global $STD;
-return <<<HTML
+    public function news_gen_block_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class='sformleftw'><a href='{$res['url']}'><b>{$res['title']}</b></a></td>
   <td class='sformleftw' width='30%'>By {$res['username']}</td>
 </tr>
 HTML;
-}
+    }
 
-function comments_header () {
-global $STD;
-return <<<HTML
+    public function comments_header()
+    {
+        global $STD;
+        return <<<HTML
 <script type='text/javascript'>
 <!--
   function check_delete () {
@@ -192,20 +208,22 @@ return <<<HTML
 <div class="sform" id="comments">
 <table class="sformtable" cellspacing="0">
 HTML;
-}
+    }
 
-function comments_footer () {
-global $STD;
-return <<<HTML
+    public function comments_footer()
+    {
+        global $STD;
+        return <<<HTML
 </table>
 </div>
 <br />
 HTML;
-}
+    }
 
-function comments_add ($comment_url, $aexpand) {
-global $STD;
-return <<<HTML
+    public function comments_add($comment_url, $aexpand)
+    {
+        global $STD;
+        return <<<HTML
 <table width="95%" cellspacing="0" cellpadding="0" align="center">
   <tr>
     <td width="100%" align="right">
@@ -230,20 +248,22 @@ return <<<HTML
 </div>
 <br />
 HTML;
-}
+    }
 
-function comments_none () {
-global $STD;
-return <<<HTML
+    public function comments_none()
+    {
+        global $STD;
+        return <<<HTML
 <tr>
 <td height="25" class="sformstrip" style="text-align:center">No comments have been left.</td>
 </tr>
 HTML;
-}
+    }
 
-function comments_row ($comment) {
-global $STD;
-return <<<HTML
+    public function comments_row($comment)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td height="25" width="55%" class="sformstrip">
     <b class="highlight">{$comment['author']}</b>
@@ -267,11 +287,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function report_sub ($id, $url, $title) {
-global $STD;
-return <<<HTML
+    public function report_sub($id, $url, $title)
+    {
+        global $STD;
+        return <<<HTML
 <form method='post' action='{$url}'>
 <input type='hidden' name='id' value='{$id}'>
 <div class="sform">
@@ -290,11 +311,12 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function report_sub_com ($id, $url, $title, $c_author) {
-global $STD;
-return <<<HTML
+    public function report_sub_com($id, $url, $title, $c_author)
+    {
+        global $STD;
+        return <<<HTML
 <form method='post' action='{$url}'>
 <input type='hidden' name='id' value='{$id}'>
 <div class="sform">
@@ -317,11 +339,12 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function report_news_com ($id, $url, $title, $c_author) {
-global $STD;
-return <<<HTML
+    public function report_news_com($id, $url, $title, $c_author)
+    {
+        global $STD;
+        return <<<HTML
 <form method='post' action='{$url}'>
 <input type='hidden' name='id' value='{$id}'>
 <div class="sform">
@@ -344,11 +367,12 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function report_msg ($id, $url, $title, $m_author) {
-global $STD;
-return <<<HTML
+    public function report_msg($id, $url, $title, $m_author)
+    {
+        global $STD;
+        return <<<HTML
 <form method='post' action='{$url}'>
 <input type='hidden' name='id' value='{$id}'>
 <div class="sform">
@@ -371,11 +395,12 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function staff_page () {
-global $STD;
-return <<<HTML
+    public function staff_page()
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <div class="sformstrip">Website Staff</div>
 <table class="sformtable" cellspacing="0" cellpadding="4">
@@ -464,7 +489,5 @@ return <<<HTML
 </div>
 <br />
 HTML;
+    }
 }
-
-}
-?>

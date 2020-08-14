@@ -1,18 +1,20 @@
 <?php
 
-class template_adm_news {
-
-function message ($message) {
-global $STD;
-return <<<HTML
+class template_adm_news
+{
+    public function message($message)
+    {
+        global $STD;
+        return <<<HTML
 <br />
 {$message}
 HTML;
-}
+    }
 
-function add_news ($token) {
-global $STD;
-return <<<HTML
+    public function add_news($token)
+    {
+        global $STD;
+        return <<<HTML
 Write a new news entry here.  {%recent_updates%} will insert the Recent Updates into your message.
 <form method="post" action="{$STD->tags['root_url']}act=news&amp;param=02">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -39,11 +41,12 @@ Write a new news entry here.  {%recent_updates%} will insert the Recent Updates 
 </div>
 </form>
 HTML;
-}
+    }
 
-function edit_header ($olinks) {
-global $STD;
-return <<<HTML
+    public function edit_header($olinks)
+    {
+        global $STD;
+        return <<<HTML
 Edit or remove news entries.
 <div align='center'>
 <br />
@@ -56,22 +59,24 @@ Edit or remove news entries.
   <td class="rowtitle" width="10%">&nbsp;</td>
 </tr>
 HTML;
-}
+    }
 
-function edit_footer ($pages) {
-global $STD;
-return <<<HTML
+    public function edit_footer($pages)
+    {
+        global $STD;
+        return <<<HTML
 </table>
 </div>
 <div style="width: 90%; text-align: left">Pages: {$pages}</div>
 <br />
 </div>
 HTML;
-}
+    }
 
-function edit_row ($news) {
-global $STD;
-return <<<HTML
+    public function edit_row($news)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="rowcell2">{$news['title']}</td>
   <td class="rowcell2">{$news['author']}</td>
@@ -79,11 +84,12 @@ return <<<HTML
   <td class="rowcell2" style="text-align: center;">{$news['delete']}</td>
 </tr>
 HTML;
-}
+    }
 
-function edit_entry ($news, $token) {
-global $STD;
-return <<<HTML
+    public function edit_entry($news, $token)
+    {
+        global $STD;
+        return <<<HTML
 Write a new news entry here.  
 <form method="post" action="{$STD->tags['root_url']}act=news&amp;param=06">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -111,8 +117,5 @@ Write a new news entry here.
 </div>
 </form>
 HTML;
+    }
 }
-
-}
-
-?>

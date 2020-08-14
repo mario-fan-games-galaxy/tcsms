@@ -1,18 +1,20 @@
 <?php
 
-class template_adm_manage {
-
-function message ($message) {
-global $STD;
-return <<<HTML
+class template_adm_manage
+{
+    public function message($message)
+    {
+        global $STD;
+        return <<<HTML
 <br />
 {$message}
 HTML;
-}
+    }
 
-function site_on_off ($data, $form_elements, $token) {
-global $STD;
-return <<<HTML
+    public function site_on_off($data, $form_elements, $token)
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=manage&amp;param=06">
 <input type="hidden" name="security_token" value="{$token}" />
 <br />
@@ -38,11 +40,12 @@ return <<<HTML
 </form>
 <br />
 HTML;
-}
+    }
 
-function msg_list_header ($tab_index, $tab_url, $olinks) {
-global $STD;
-return <<<HTML
+    public function msg_list_header($tab_index, $tab_url, $olinks)
+    {
+        global $STD;
+        return <<<HTML
 <div align="center">
 <br />
 <div style="width: 90%">
@@ -63,22 +66,24 @@ return <<<HTML
   <td class="rowtitle" width="10%"><a href="{$olinks['d']['url']}">Date</a> {$olinks['d']['img']}</td>
 </tr>
 HTML;
-}
+    }
 
-function msg_list_footer ($pages) {
-global $STD;
-return <<<HTML
+    public function msg_list_footer($pages)
+    {
+        global $STD;
+        return <<<HTML
 </table>
 </div>
 <div style="width: 90%; text-align: left">Pages: {$pages}</div>
 <br />
 </div>
 HTML;
-}
+    }
 
-function msg_list_row ($msg) {
-global $STD;
-return <<<HTML
+    public function msg_list_row($msg)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="rowcell2">{$msg['code']}</td>
   <td class="rowcell2">{$msg['title']}</td>
@@ -86,11 +91,12 @@ return <<<HTML
   <td class="rowcell2">{$msg['date']}</td>
 </tr>
 HTML;
-}
+    }
 
-function msg_page ($msg, $close_url) {
-global $STD;
-return <<<HTML
+    public function msg_page($msg, $close_url)
+    {
+        global $STD;
+        return <<<HTML
 After handling a message, the message should be closed so it isn't responded to by multiple staff members.  After being closed, the message will be archived for future review.
 <div align="center">
 <br />
@@ -184,8 +190,5 @@ After handling a message, the message should be closed so it isn't responded to 
 </form>
 </div>
 HTML;
+    }
 }
-
-}
-
-?>

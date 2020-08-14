@@ -1,10 +1,11 @@
 <?php
 
-class template_global {
-
-function message ($msg) {
-global $STD;
-return <<<HTML
+class template_global
+{
+    public function message($msg)
+    {
+        global $STD;
+        return <<<HTML
 <br />
 <div class="sform" style="width:60%">
 <table class="sformtable" cellspacing="1">
@@ -14,11 +15,12 @@ return <<<HTML
 </table>
 </div>
 HTML;
-}
+    }
 
-function error ($msg) {
-global $STD;
-return <<<HTML
+    public function error($msg)
+    {
+        global $STD;
+        return <<<HTML
     <br />
 	<div class="sform" style="width:60%">
 	  <div class="sformstrip">Error</div>
@@ -33,11 +35,12 @@ return <<<HTML
 	  </table>
 	</div>
 HTML;
-}
+    }
 
-function html_head () {
-global $STD;
-return <<<HTML
+    public function html_head()
+    {
+        global $STD;
+        return <<<HTML
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
   <head>
@@ -71,11 +74,12 @@ return <<<HTML
     </script>
   </head>
 HTML;
-}
+    }
 
-function site_header () {
-global $STD;
-return <<<HTML
+    public function site_header()
+    {
+        global $STD;
+        return <<<HTML
 <body>
   <script type="text/javascript" src="{$STD->tags['template_path']}/global.js"></script>
   <div class="header">
@@ -98,11 +102,12 @@ return <<<HTML
   <table border="0" cellspacing="0" cellpadding="0" width="100%">
   <tr>
 HTML;
-}
+    }
 
-function site_menu ($login) {
-global $STD;
-return <<<HTML
+    public function site_menu($login)
+    {
+        global $STD;
+        return <<<HTML
 <td width="150" valign="top">
 <div class="menu">
 <div class="menutitle">Main</div>
@@ -137,11 +142,12 @@ return <<<HTML
 {$login}
 </td>
 HTML;
-}
+    }
 
-function menu_login () {
-global $STD;
-return <<<HTML
+    public function menu_login()
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=login&amp;param=02">
 <div class="menu">
 <div class="menutitle">Login</div>
@@ -162,11 +168,12 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function menu_loggedin ($username, $messages) {
-global $STD;
-return <<<HTML
+    public function menu_loggedin($username, $messages)
+    {
+        global $STD;
+        return <<<HTML
 <div class="menu">
 <div class="menutitle">{$username}</div>
 <div class="menusection">
@@ -178,41 +185,46 @@ return <<<HTML
 </div>
 </div>
 HTML;
-}
+    }
 
-function content_header ($new_message) {
-global $STD;
-return <<<HTML
+    public function content_header($new_message)
+    {
+        global $STD;
+        return <<<HTML
 <td valign="top" align="center">
 {$new_message}
 HTML;
-}
+    }
 
-function page_header ($title) {
-global $STD;
-return <<<HTML
+    public function page_header($title)
+    {
+        global $STD;
+        return <<<HTML
 <div style="width:95%; text-align:left">
   <span class="boxheader">{$title}</span>
 </div>
 HTML;
-}
+    }
 
-function page_footer () {
-global $STD;
-return <<<HTML
+    public function page_footer()
+    {
+        global $STD;
+        return <<<HTML
 HTML;
-}
+    }
 
-function content_footer () {
-global $STD;
-return <<<HTML
+    public function content_footer()
+    {
+        global $STD;
+        return <<<HTML
 </td>
 HTML;
-}
+    }
 
-function site_footer () {
-global $STD;
-return <<<HTML
+    public function site_footer()
+    {
+        global $STD;
+        return <<<HTML
 </tr>
 <tr>
   <td></td>
@@ -231,43 +243,43 @@ return <<<HTML
 </body>
 </html>
 HTML;
-}
+    }
 
-function new_messages ($msg) {
-global $STD;
-return <<<HTML
+    public function new_messages($msg)
+    {
+        global $STD;
+        return <<<HTML
 <div align="center">
 <div class="message">You have a new message: <b>$msg</b></div>
 </div>
 <br />
 HTML;
-}
+    }
 
-// Not a true skin component
-function wrapper ($template, $out) {
-	global $STD;
-	
-	$output  = $template->html_head();
-	$output .= $template->site_header();
-	
-	if (!$STD->user['uid'])
-		$menu = $template->menu_login();
-	else
-		$menu = $template->menu_loggedin($STD->user['username'], $STD->user['new_msgs']);
-	
-	$new_message = $STD->global_template_ui->new_message();
-	
-	$output .= $template->site_menu($menu);
-	$output .= $template->content_header($new_message);
-	
-	$output .= $out;
-	
-	$output .= $template->content_footer();
-	$output .= $template->site_footer();
-	
-	return $output;
+    // Not a true skin component
+    public function wrapper($template, $out)
+    {
+        global $STD;
+    
+        $output  = $template->html_head();
+        $output .= $template->site_header();
+    
+        if (!$STD->user['uid']) {
+            $menu = $template->menu_login();
+        } else {
+            $menu = $template->menu_loggedin($STD->user['username'], $STD->user['new_msgs']);
+        }
+    
+        $new_message = $STD->global_template_ui->new_message();
+    
+        $output .= $template->site_menu($menu);
+        $output .= $template->content_header($new_message);
+    
+        $output .= $out;
+    
+        $output .= $template->content_footer();
+        $output .= $template->site_footer();
+    
+        return $output;
+    }
 }
-
-}
-
-?>

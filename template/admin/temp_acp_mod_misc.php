@@ -1,10 +1,11 @@
 <?php
 
-class template_acp_mod_misc {
-
-function acp_edit_form ($res) {
-global $STD;
-return <<<HTML
+class template_acp_mod_misc
+{
+    public function acp_edit_form($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class='title_fixed' valign='top'>
     Sound Format
@@ -171,6 +172,5 @@ return <<<HTML
   <td>&nbsp;</td>
 </tr>
 HTML;
-}
-
+    }
 }

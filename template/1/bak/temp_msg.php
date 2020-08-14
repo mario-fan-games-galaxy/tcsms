@@ -1,10 +1,11 @@
 <?php
 
-class template_msg {
-
-function start_rows ($order_list) {
-global $STD;
-return <<<HTML
+class template_msg
+{
+    public function start_rows($order_list)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$STD->tags['root_url']}act=msg&param=04">
 <table class="sformtable" cellspacing="1">
@@ -16,11 +17,12 @@ return <<<HTML
   <td class="sformtitle" style="width: 5%">&nbsp;</td>
 </tr>
 HTML;
-}
+    }
 
-function end_rows ($pages) {
-global $STD;
-return <<<HTML
+    public function end_rows($pages)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformtitle" colspan="5" style="padding:2px">
   <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr>
@@ -34,11 +36,12 @@ return <<<HTML
 <div class="sformstrip">Pages: {$pages}</div>
 </div>
 HTML;
-}
+    }
 
-function msg_row ($msg) {
-global $STD;
-return <<<HTML
+    public function msg_row($msg)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformfree" align="center">{$msg['icon']}</td>
   <td class="sformfree">{$msg['title']}</td>
@@ -47,11 +50,12 @@ return <<<HTML
   <td class="sformfree" align="center"><input type='checkbox' name='mid[]' value='{$msg['mid']}' /></td>
 </tr>
 HTML;
-}
+    }
 
-function msg_view ($msg) {
-global $STD;
-return <<<HTML
+    public function msg_view($msg)
+    {
+        global $STD;
+        return <<<HTML
 <script type='text/javascript'>
 <!--
   function check_delete () {
@@ -89,11 +93,12 @@ return <<<HTML
 </table>
 </div>
 HTML;
-}
+    }
 
-function msg_compose ($msg) {
-global $STD;
-return <<<HTML
+    public function msg_compose($msg)
+    {
+        global $STD;
+        return <<<HTML
 <script type="text/javascript">
 <!--
   function set_staff () {
@@ -133,6 +138,5 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
-
+    }
 }

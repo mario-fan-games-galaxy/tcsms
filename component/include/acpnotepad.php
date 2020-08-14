@@ -42,4 +42,3 @@ Banned AwesomeGuy for crappy submissions and suspicion of being a dark bloom clo
 
 Char that password doesn't work -BS
 This is looking rather empty -BS";
-?>

@@ -1,37 +1,41 @@
 <?php
 
-class template_search {
-
-function simple_results_header () {
-global $STD;
-return <<<HTML
+class template_search
+{
+    public function simple_results_header()
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <table class="sformtable" cellspacing="0" cellpadding="0">
 HTML;
-}
+    }
 
-function simple_results_footer ($pages) {
-global $STD;
-return <<<HTML
+    public function simple_results_footer($pages)
+    {
+        global $STD;
+        return <<<HTML
 </table>
 <div class="sformstrip">Pages: {$pages}</div>
 </div>
 HTML;
-}
+    }
 
-function simple_no_results () {
-global $STD;
-return <<<HTML
+    public function simple_no_results()
+    {
+        global $STD;
+        return <<<HTML
 <tr><td>
 <div class="sformblock" style="text-align:center; margin-bottom:1px; padding:10px">
 No results found for this search string</div>
 </td></tr>
 HTML;
-}
+    }
 
-function simple_results_row ($res) {
-global $STD;
-return <<<HTML
+    public function simple_results_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td style="border-bottom:1px solid gray" align="left">
     <div class="sformstrip"><span class="highlight">{$res['full_name']}</span> <b>-></b> 
@@ -55,11 +59,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function advanced_search ($form_fields) {
-global $STD;
-return <<<HTML
+    public function advanced_search($form_fields)
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=search&amp;param=03">
 <div class="sform">
 <div class="sformstrip">Search Terms</div>
@@ -91,35 +96,35 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function constraint_block ($rows) {
-global $STD;
-return <<<HTML
+    public function constraint_block($rows)
+    {
+        global $STD;
+        return <<<HTML
 <table border="0" cellspacing="0" cellpadding="2" width="100%">
 {$rows}
 </table>
 HTML;
-}
+    }
 
-function constraint_row ($name, $select) {
-global $STD;
-return <<<HTML
+    public function constraint_row($name, $select)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td width="35%">&nbsp; &nbsp; {$name}</td>
   <td>{$select}</td>
 </tr>
 HTML;
-}
+    }
 
-function search_tip ($msg) {
-global $STD;
-return <<<HTML
+    public function search_tip($msg)
+    {
+        global $STD;
+        return <<<HTML
 <div class="message"><b>Search Tip:</b> $msg</div>
 <br />
 HTML;
+    }
 }
-
-}
-
-?>

@@ -1,18 +1,20 @@
 <?php
 
-class template_adm_ucp {
-
-function message ($message) {
-global $STD;
-return <<<HTML
+class template_adm_ucp
+{
+    public function message($message)
+    {
+        global $STD;
+        return <<<HTML
 <br />
 {$message}
 HTML;
-}
+    }
 
-function ucp_list_header ($tab_index, $tab_url, $olinks) {
-global $STD;
-return <<<HTML
+    public function ucp_list_header($tab_index, $tab_url, $olinks)
+    {
+        global $STD;
+        return <<<HTML
 <div align="center">
 <br />
 <div style="width: 90%">
@@ -57,42 +59,46 @@ return <<<HTML
   <td class="rowtitle" width="40%"><a href="{$olinks['g']['url']}">Group</a> {$olinks['g']['img']}</td>
 </tr>
 HTML;
-}
+    }
 
-function ucp_list_footer ($pages) {
-global $STD;
-return <<<HTML
+    public function ucp_list_footer($pages)
+    {
+        global $STD;
+        return <<<HTML
 </table>
 </div>
 <div style="width: 90%; text-align: left">{$pages}</div>
 <br />
 </div>
 HTML;
-}
+    }
 
-function ucp_list_row ($user) {
-global $STD;
-return <<<HTML
+    public function ucp_list_row($user)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="rowcell2">
     <a href="{$STD->tags['root_url']}act=ucp&amp;param=02&amp;u={$user['uid']}">{$user['username']}</a></td>
   <td class="rowcell2">{$user['group_name']}</td>
 </tr>
 HTML;
-}
+    }
 
-function ucp_list_norows () {
-global $STD;
-return <<<HTML
+    public function ucp_list_norows()
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="rowcell2" colspan="2" style="text-align:center">No users found</td>
 </tr>
 HTML;
-}
+    }
 
-function ucp_find_users ( ) {
-global $STD;
-return <<<HTML
+    public function ucp_find_users()
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=ucp&amp;param=15">
 <br />
 <div class="rowfield" style="margin-left:auto; margin-right:auto">
@@ -111,11 +117,12 @@ return <<<HTML
 </form>
 <br />
 HTML;
-}
+    }
 
-function ucp_find_email ( ) {
-global $STD;
-return <<<HTML
+    public function ucp_find_email()
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=ucp&amp;param=17">
 <br />
 <div class="rowfield" style="margin-left:auto; margin-right:auto">
@@ -134,11 +141,12 @@ return <<<HTML
 </form>
 <br />
 HTML;
-}
+    }
 
-function ucp_find_ip ( ) {
-global $STD;
-return <<<HTML
+    public function ucp_find_ip()
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=ucp&amp;param=19">
 <br />
 <div class="rowfield" style="margin-left:auto; margin-right:auto">
@@ -157,11 +165,12 @@ return <<<HTML
 </form>
 <br />
 HTML;
-}
+    }
 
-function ucp_find_list_header () {
-global $STD;
-return <<<HTML
+    public function ucp_find_list_header()
+    {
+        global $STD;
+        return <<<HTML
 <div align="center">
 <br />
 <div class="rowfield">
@@ -171,11 +180,12 @@ return <<<HTML
   <td class="rowtitle" width="40%">Group</td>
 </tr>
 HTML;
-}
+    }
 
-function ucp_edit_user ($user, $form_elements, $token) {
-global $STD;
-return <<<HTML
+    public function ucp_edit_user($user, $form_elements, $token)
+    {
+        global $STD;
+        return <<<HTML
 <script type="text/javascript">
   function check_drop() {
       form_check = confirm('Warning: Dropping this user will permanently delete them from the database.\n\nDo you still wish to continue?');
@@ -303,11 +313,12 @@ Use this page to modify the selected user.  To change the user's password, fill 
 </div>
 </form>
 HTML;
-}
+    }
 
-function group_list_header ($olinks) {
-global $STD;
-return <<<HTML
+    public function group_list_header($olinks)
+    {
+        global $STD;
+        return <<<HTML
 <div align="center">
 <br />
 <div class="rowfield">
@@ -318,11 +329,12 @@ return <<<HTML
   <td class="rowtitle" width="25%">Moderator</td>
 </tr>
 HTML;
-}
+    }
 
-function group_list_footer ($pages, $menu) {
-global $STD;
-return <<<HTML
+    public function group_list_footer($pages, $menu)
+    {
+        global $STD;
+        return <<<HTML
 </table>
 </div>
 <div style="width: 90%; text-align: left">Pages: {$pages}</div>
@@ -339,11 +351,12 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
+    }
 
-function group_list_row ($group) {
-global $STD;
-return <<<HTML
+    public function group_list_row($group)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="rowcell2">
     <a href="{$STD->tags['root_url']}act=ucp&amp;param=08&amp;gid={$group['gid']}">{$group['group_name']}</a></td>
@@ -351,11 +364,12 @@ return <<<HTML
   <td class="rowcell2">{$group['mod']}</td>
 </tr>
 HTML;
-}
+    }
 
-function group_edit ($group, $form_elements, $token) {
-global $STD;
-return <<<HTML
+    public function group_edit($group, $form_elements, $token)
+    {
+        global $STD;
+        return <<<HTML
 <script type="text/javascript">
   function check_drop() {
       form_check = confirm('Warning: Dropping this group will permanently delete them from the database.\n\nDo you still wish to continue?');
@@ -492,11 +506,12 @@ Use this page to modify the selected group.
 <br />
 </form>
 HTML;
-}
+    }
 
-function group_drop ($group, $form_elements, $token) {
-global $STD;
-return <<<HTML
+    public function group_drop($group, $form_elements, $token)
+    {
+        global $STD;
+        return <<<HTML
 Select a new group to merge existing users into
 <form method="post" action="{$STD->tags['root_url']}act=ucp&amp;param=12">
 <input type="hidden" name="gid" value="{$group['gid']}" />
@@ -524,11 +539,12 @@ Select a new group to merge existing users into
 </div>
 </form>
 HTML;
-}
+    }
 
-function ban_settings ($blacklist, $whitelist, $emaillist, $token) {
-global $STD;
-return <<<HTML
+    public function ban_settings($blacklist, $whitelist, $emaillist, $token)
+    {
+        global $STD;
+        return <<<HTML
 You can setup IP banning (blacklisting) and user exceptions (whitelisting) on this page.  Blacklisting should only be used as a last resort.
 <form method="post" action="{$STD->tags['root_url']}act=ucp&amp;param=13">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -579,8 +595,5 @@ You can setup IP banning (blacklisting) and user exceptions (whitelisting) on th
 </div>
 </form>
 HTML;
+    }
 }
-
-}
-
-?>

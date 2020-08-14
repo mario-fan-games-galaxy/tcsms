@@ -1,10 +1,11 @@
 <?php
 
-class template_submit {
-
-function submit_page ($urlparts, $token, $type_list, $def_disp) {
-global $STD;
-return <<<HTML
+class template_submit
+{
+    public function submit_page($urlparts, $token, $type_list, $def_disp)
+    {
+        global $STD;
+        return <<<HTML
 <script type="text/javascript">
 <!--
 function do_form() {
@@ -47,27 +48,30 @@ Your submission is being transfered.  Please do not leave this page until the tr
 </form>
 </div>
 HTML;
-}
+    }
 
-function type_select ($options) {
-global $STD;
-return <<<HTML
+    public function type_select($options)
+    {
+        global $STD;
+        return <<<HTML
 <select name="c" size="1" class="selectbox" onchange="if(this.options[this.selectedIndex].value != -1){ document.subselect.submit() }">
 {$options}
 </select> <input type="submit" value="Change" class="button" />
 HTML;
-}
+    }
 
-function invalid_module () {
-global $STD;
-return <<<HTML
+    public function invalid_module()
+    {
+        global $STD;
+        return <<<HTML
 <div class="sformblock" style="text-align:center"><br />Invalid Module Requested<br />&nbsp;</div>
 HTML;
-}
+    }
 
-function rules ($url, $rules, $show_extra) {
-global $STD;
-return <<<HTML
+    public function rules($url, $rules, $show_extra)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <div class="sformblock" style="{$show_extra}">
   <span class='highlight' style="font-weight:bold">Welcome to the MFGG submission page.  Because this is your first time making a submission, 
@@ -80,6 +84,5 @@ return <<<HTML
   <input type='submit' name='rules_continue' value='Continue' class="button" /></form></div>
 </div>
 HTML;
-}
-
+    }
 }

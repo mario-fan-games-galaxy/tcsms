@@ -1,10 +1,11 @@
 <?php
 
-class template_acp_mod_games {
-
-function acp_edit_form ($res) {
-global $STD;
-return <<<HTML
+class template_acp_mod_games
+{
+    public function acp_edit_form($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class='title_fixed' valign='top'>
     Completion
@@ -251,7 +252,5 @@ return <<<HTML
   <td>&nbsp;</td>
 </tr>
 HTML;
+    }
 }
-
-}
-?>

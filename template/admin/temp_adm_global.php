@@ -1,18 +1,20 @@
 <?php
 
-class template_adm_global {
-
-function message ($message) {
-global $STD;
-return <<<HTML
+class template_adm_global
+{
+    public function message($message)
+    {
+        global $STD;
+        return <<<HTML
 <br />
 {$message}
 HTML;
-}
+    }
 
-function error ($error) {
-global $STD;
-return <<<HTML
+    public function error($error)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="header">
   Error
@@ -25,11 +27,12 @@ return <<<HTML
 </td>
 </tr>
 HTML;
-}
+    }
 
-function html_head () {
-global $STD;
-return <<<HTML
+    public function html_head()
+    {
+        global $STD;
+        return <<<HTML
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
   <head>
@@ -95,26 +98,29 @@ return <<<HTML
 	</script>
   </head>
 HTML;
-}
+    }
 
-function site_content_header () {
-global $STD;
-return <<<HTML
+    public function site_content_header()
+    {
+        global $STD;
+        return <<<HTML
 <body>
 HTML;
-}
+    }
 
-function site_content_footer () {
-global $STD;
-return <<<HTML
+    public function site_content_footer()
+    {
+        global $STD;
+        return <<<HTML
 </body>
 </html>
 HTML;
-}
+    }
 
-function site_header ($site_url) {
-global $STD;
-return <<<HTML
+    public function site_header($site_url)
+    {
+        global $STD;
+        return <<<HTML
 <body>
 <script type="text/javascript" src="{$STD->tags['template_path']}/global.js"></script>
 <div align="center">
@@ -148,11 +154,12 @@ return <<<HTML
 <table border="0" cellpadding="0" cellspacing="0" width="98%">
 <tr>
 HTML;
-}
+    }
 
-function site_menu ($modq_menu) {
-global $STD;
-return <<<HTML
+    public function site_menu($modq_menu)
+    {
+        global $STD;
+        return <<<HTML
 <td width="15%" valign="top">
 <table border="0" cellspacing="0" cellpadding="4" width="100%" style="border:2px solid #000000">
 <tr>
@@ -223,19 +230,21 @@ return <<<HTML
 &nbsp;
 </td>
 HTML;
-}
+    }
 
-function content_header () {
-global $STD;
-return <<<HTML
+    public function content_header()
+    {
+        global $STD;
+        return <<<HTML
 <td width="83%" valign="top">
 <table border="0" cellspacing="0" cellpadding="4" width="100%" style="border:2px solid #000000">
 HTML;
-}
+    }
 
-function page_header ($title) {
-global $STD;
-return <<<HTML
+    public function page_header($title)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="header">
   {$title}
@@ -244,53 +253,54 @@ return <<<HTML
 <tr>
   <td class="body">
 HTML;
-}
+    }
 
-function page_footer () {
-global $STD;
-return <<<HTML
+    public function page_footer()
+    {
+        global $STD;
+        return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function content_footer () {
-global $STD;
-return <<<HTML
+    public function content_footer()
+    {
+        global $STD;
+        return <<<HTML
 </table>
 </td>
 HTML;
-}
+    }
 
-function site_footer () {
-global $STD;
-return <<<HTML
+    public function site_footer()
+    {
+        global $STD;
+        return <<<HTML
 </tr>
 </table>
 </div>
 </body>
 </html>
 HTML;
-}
+    }
 
-// Not a true skin component
-function wrapper ($template, $out) {
-	global $CFG,$STD;
-	
-	$output  = $template->html_head();
-	$output .= $template->site_header( $CFG['root_url'].'/index.php' );
-	
-	$output .= $template->site_menu( $STD->global_template_ui->modq_menu() );
-	$output .= $template->content_header();
-	
-	$output .= $out;
-	
-	$output .= $template->content_footer();
-	$output .= $template->site_footer();
-	
-	return $output;
+    // Not a true skin component
+    public function wrapper($template, $out)
+    {
+        global $CFG,$STD;
+    
+        $output  = $template->html_head();
+        $output .= $template->site_header($CFG['root_url'].'/index.php');
+    
+        $output .= $template->site_menu($STD->global_template_ui->modq_menu());
+        $output .= $template->content_header();
+    
+        $output .= $out;
+    
+        $output .= $template->content_footer();
+        $output .= $template->site_footer();
+    
+        return $output;
+    }
 }
-
-}
-
-?>

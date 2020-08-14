@@ -1,10 +1,11 @@
 <?php
 
-class template_mod_sounds {
-
-function resdb_row ($res) {
-global $STD;
-return <<<HTML
+class template_mod_sounds
+{
+    public function resdb_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;text-align:left" height="75">
     <table border="0" cellpadding="2" cellspacing="0" width="100%" style="height: 100%">
@@ -49,12 +50,13 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
 
-function resdb_page ($res) {
-global $STD;
-return <<<HTML
+    public function resdb_page($res)
+    {
+        global $STD;
+        return <<<HTML
   <div class="sform">
   <table class="sformtable" cellspacing="0">
   <tr>
@@ -150,11 +152,12 @@ return <<<HTML
   </table>
   <br />
 HTML;
-}
+    }
 
-function manage_row ($res, $cat) {
-global $STD;
-return <<<HTML
+    public function manage_row($res, $cat)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;text-align:left" height="75">
     <table border="0" cellpadding="2" cellspacing="0" width="100%" style="height: 100%">
@@ -199,11 +202,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function manage_row_queued ($res, $cat) {
-global $STD;
-return <<<HTML
+    public function manage_row_queued($res, $cat)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;text-align:left;background-color:#E5E5E5" height="75">
     <table border="0" cellpadding="2" cellspacing="0" width="100%" style="height: 100%">
@@ -248,11 +252,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function manage_page ($res, $token) {
-global $STD;
-return <<<HTML
+    public function manage_page($res, $token)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$STD->tags['root_url']}act=user&amp;param=07" enctype="multipart/form-data">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -344,11 +349,12 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
+    }
 
-function submit_form ($res) {
-global $STD;
-return <<<HTML
+    public function submit_form($res)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sformstrip">Fill in information about your submission.</div>
 <table class="sformtable" cellspacing="1">
 <tr>
@@ -391,6 +397,5 @@ return <<<HTML
 </tr>
 </table>
 HTML;
-}
-
+    }
 }

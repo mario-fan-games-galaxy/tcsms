@@ -1,10 +1,11 @@
 <?php
 
-class template_msg {
-
-function start_rows ($order_list, $box, $dirsel, $dir_name) {
-global $STD;
-return <<<HTML
+class template_msg
+{
+    public function start_rows($order_list, $box, $dirsel, $dir_name)
+    {
+        global $STD;
+        return <<<HTML
 <script type="text/javascript">
 <!--
   function sel_all() {
@@ -36,16 +37,21 @@ return <<<HTML
     <input type="checkbox" name="selall" class="checkbox" onclick="javascript:sel_all();" /></td>
 </tr>
 HTML;
-}
+    }
 
-function storage_box ($current, $limit, $current_percent) {
-global $STD;
-$current_p = min(200, $current_percent*2);
-$limit_p = 200 - $current_p;
-$c_disp = $l_disp = '';
-if ($current_p <= 0) $c_disp = ";display:none'";
-if ($limit_p <= 0) $l_disp = ";display:none'";
-return <<<HTML
+    public function storage_box($current, $limit, $current_percent)
+    {
+        global $STD;
+        $current_p = min(200, $current_percent*2);
+        $limit_p = 200 - $current_p;
+        $c_disp = $l_disp = '';
+        if ($current_p <= 0) {
+            $c_disp = ";display:none'";
+        }
+        if ($limit_p <= 0) {
+            $l_disp = ";display:none'";
+        }
+        return <<<HTML
   <td style="width:50px">Storage:&nbsp;</td>
   <td style="width:{$current_p}px{$c_disp}">
     <div style="height:16px; background:orange; border:1px solid gray"></div></td>
@@ -53,11 +59,12 @@ return <<<HTML
     <div style="height:16px; background:green; border:1px solid gray"></div></td>
   <td style="width:auto">&nbsp;{$current} / {$limit} messages</td>
 HTML;
-}
+    }
 
-function end_rows ($pages) {
-global $STD;
-return <<<HTML
+    public function end_rows($pages)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformtitle" colspan="5" style="padding:2px">
   <table border="0" cellspacing="0" cellpadding="2" width="100%"><tr>
@@ -71,11 +78,12 @@ return <<<HTML
 <div class="sformstrip">Pages: {$pages}</div>
 </div>
 HTML;
-}
+    }
 
-function msg_row ($msg) {
-global $STD;
-return <<<HTML
+    public function msg_row($msg)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformfree" align="center">{$msg['icon']}</td>
   <td class="sformfree">{$msg['title']}</td>
@@ -84,11 +92,12 @@ return <<<HTML
   <td class="sformfree" align="center"><input type='checkbox' name='mid[]' value='{$msg['mid']}' class="checkbox" /></td>
 </tr>
 HTML;
-}
+    }
 
-function msg_view ($msg) {
-global $STD;
-return <<<HTML
+    public function msg_view($msg)
+    {
+        global $STD;
+        return <<<HTML
 <script type='text/javascript'>
 <!--
   function check_delete () {
@@ -126,11 +135,12 @@ return <<<HTML
 </table>
 </div>
 HTML;
-}
+    }
 
-function msg_history ($list) {
-global $STD;
-return <<<HTML
+    public function msg_history($list)
+    {
+        global $STD;
+        return <<<HTML
 <div id="chm" class="sform">
 <div class="sformstrip"><a href="javascript:show_hide('ch'); show_hide('chm')">Show conversation history</a></div>
 </div>
@@ -140,11 +150,12 @@ return <<<HTML
 </div>
 <br />
 HTML;
-}
+    }
 
-function msg_history_row ($msg) {
-global $STD;
-return <<<HTML
+    public function msg_history_row($msg)
+    {
+        global $STD;
+        return <<<HTML
 <table class="sformtable" cellspacing="1">
 <tr>
   <td class="sformtitle" style="width: 20%">{$msg['sender']}</td>
@@ -159,11 +170,12 @@ return <<<HTML
 </tr>
 </table>
 HTML;
-}
+    }
 
-function msg_compose ($msg, $token, $reply, $staff_reply) {
-global $STD;
-return <<<HTML
+    public function msg_compose($msg, $token, $reply, $staff_reply)
+    {
+        global $STD;
+        return <<<HTML
 <script type="text/javascript">
 <!--
   function set_staff () {
@@ -227,6 +239,5 @@ return <<<HTML
 -->
 </script>
 HTML;
-}
-
+    }
 }

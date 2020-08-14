@@ -1,1 +1,1 @@
-<?php require dirname(__FILE__)."/../3/temp_user.php";  ?>
+<?php require dirname(__FILE__)."/../3/temp_user.php";

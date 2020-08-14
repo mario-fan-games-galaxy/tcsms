@@ -1,10 +1,11 @@
 <?php
 
-class template_global {
-
-function message ($msg) {
-global $STD;
-return <<<HTML
+class template_global
+{
+    public function message($msg)
+    {
+        global $STD;
+        return <<<HTML
 <br />
 <div class="sform" style="width:75%; margin-left:auto; margin-right:auto">
 <table class="sformtable" cellspacing="1">
@@ -14,11 +15,12 @@ return <<<HTML
 </table>
 </div>
 HTML;
-}
+    }
 
-function error ($msg) {
-global $STD;
-return <<<HTML
+    public function error($msg)
+    {
+        global $STD;
+        return <<<HTML
     <br />
 	<div class="sform" style="width:75%; margin-left:auto; margin-right:auto">
 	  <div class="sformstrip">Error</div>
@@ -33,11 +35,12 @@ return <<<HTML
 	  </table>
 	</div>
 HTML;
-}
+    }
 
-function html_head () {
-global $STD;
-return <<<HTML
+    public function html_head()
+    {
+        global $STD;
+        return <<<HTML
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en">
   <head>
@@ -47,11 +50,12 @@ return <<<HTML
     <link rel="stylesheet" href="{$STD->tags['template_path']}/style.css" type="text/css" />
   </head>
 HTML;
-}
+    }
 
-function site_header () {
-global $STD;
-return <<<HTML
+    public function site_header()
+    {
+        global $STD;
+        return <<<HTML
 <body>
   <script type="text/javascript" src="{$STD->tags['template_path']}/global.js"></script>
   <div class="header">
@@ -73,11 +77,12 @@ return <<<HTML
   <table border="0" cellspacing="0" cellpadding="0" width="100%" style="background: url({$STD->tags['image_path']}/menubg.jpg); background-repeat: repeat-y;">
   <tr>
 HTML;
-}
+    }
 
-function site_menu ($login) {
-global $STD;
-return <<<HTML
+    public function site_menu($login)
+    {
+        global $STD;
+        return <<<HTML
 <td width="135" valign="top">
 <div class="canvas_left">
 <br />
@@ -127,11 +132,12 @@ return <<<HTML
 </div>
 </td>
 HTML;
-}
+    }
 
-function menu_login () {
-global $STD;
-return <<<HTML
+    public function menu_login()
+    {
+        global $STD;
+        return <<<HTML
 <form method="post" action="{$STD->tags['root_url']}act=login&amp;param=02">
 <div class="menu">
 <div class="menutitle">Login</div>
@@ -152,11 +158,12 @@ return <<<HTML
 </div>
 </form>
 HTML;
-}
+    }
 
-function menu_loggedin ($username, $messages, $extra) {
-global $STD;
-return <<<HTML
+    public function menu_loggedin($username, $messages, $extra)
+    {
+        global $STD;
+        return <<<HTML
 <div class="menu">
 <div class="menutitle">{$username}</div>
 <div class="menusection">
@@ -169,21 +176,23 @@ return <<<HTML
 </div>
 </div>
 HTML;
-}
+    }
 
-function content_header ($new_message) {
-global $STD;
-return <<<HTML
+    public function content_header($new_message)
+    {
+        global $STD;
+        return <<<HTML
 <td valign="top" align="center">
 <div class="canvas_center">
 <br />
 {$new_message}
 HTML;
-}
+    }
 
-function page_header ($title) {
-global $STD;
-return <<<HTML
+    public function page_header($title)
+    {
+        global $STD;
+        return <<<HTML
 <div class="header_region">
 <table border="0" cellspacing="0" cellpadding="0" style="width:550px; margin-left: auto; margin-right: auto"><tr>
 <td style="background:url({$STD->tags['image_path']}/pipe_bg.gif);">
@@ -199,25 +208,28 @@ return <<<HTML
 </div>
 <br />
 HTML;
-}
+    }
 
-function page_footer () {
-global $STD;
-return <<<HTML
+    public function page_footer()
+    {
+        global $STD;
+        return <<<HTML
 HTML;
-}
+    }
 
-function content_footer () {
-global $STD;
-return <<<HTML
+    public function content_footer()
+    {
+        global $STD;
+        return <<<HTML
 </div>
 </td>
 HTML;
-}
+    }
 
-function site_footer () {
-global $STD;
-return <<<HTML
+    public function site_footer()
+    {
+        global $STD;
+        return <<<HTML
 </tr>
 <tr>
   <td></td>
@@ -236,51 +248,52 @@ return <<<HTML
 </body>
 </html>
 HTML;
-}
+    }
 
-function new_messages ($msg) {
-global $STD;
-return <<<HTML
+    public function new_messages($msg)
+    {
+        global $STD;
+        return <<<HTML
 <div class="message">You have a new message: <b>$msg</b></div>
 <br />
 HTML;
-}
+    }
 
-function admin_link () {
-global $STD;
-return <<<HTML
+    public function admin_link()
+    {
+        global $STD;
+        return <<<HTML
 <hr>
 <div class="menuitem"><a href="admin.php">Admin CP</a></div>
 HTML;
-}
+    }
 
-// Not a true skin component
-function wrapper ($template, $out) {
-	global $STD;
-	
-	$output  = $template->html_head();
-	$output .= $template->site_header();
-	
-	if (!$STD->user['uid'])
-		$menu = $template->menu_login();
-	elseif (!empty($STD->user['acp_access']))
-		$menu = $template->menu_loggedin($STD->user['username'], $STD->user['new_msgs'], $template->admin_link());
-	else
-		$menu = $template->menu_loggedin($STD->user['username'], $STD->user['new_msgs'], '');
-	
-	$new_message = $STD->global_template_ui->new_message();
-	
-	$output .= $template->site_menu($menu);
-	$output .= $template->content_header($new_message);
-	
-	$output .= $out;
-	
-	$output .= $template->content_footer();
-	$output .= $template->site_footer();
-	
-	return $output;
+    // Not a true skin component
+    public function wrapper($template, $out)
+    {
+        global $STD;
+    
+        $output  = $template->html_head();
+        $output .= $template->site_header();
+    
+        if (!$STD->user['uid']) {
+            $menu = $template->menu_login();
+        } elseif (!empty($STD->user['acp_access'])) {
+            $menu = $template->menu_loggedin($STD->user['username'], $STD->user['new_msgs'], $template->admin_link());
+        } else {
+            $menu = $template->menu_loggedin($STD->user['username'], $STD->user['new_msgs'], '');
+        }
+    
+        $new_message = $STD->global_template_ui->new_message();
+    
+        $output .= $template->site_menu($menu);
+        $output .= $template->content_header($new_message);
+    
+        $output .= $out;
+    
+        $output .= $template->content_footer();
+        $output .= $template->site_footer();
+    
+        return $output;
+    }
 }
-
-}
-
-?>

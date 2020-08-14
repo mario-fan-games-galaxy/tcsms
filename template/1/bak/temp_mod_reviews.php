@@ -1,6 +1,7 @@
 <?php
 
-class template_mod_reviews {
+class template_mod_reviews
+{
 
 /*function resdb_row ($res) {
 global $STD;
@@ -14,7 +15,7 @@ return <<<HTML
           <b>{$res['title']}</b></a>
         </td>
         <td height="25" width="25%" class="sformstrip">
-	      By: <b>{$res['author']}</b>
+          By: <b>{$res['author']}</b>
         </td>
         <td height="25" width="15%" class="sformstrip" style="text-align:right;padding:2px">
           {$res['email_icon']} {$res['website_icon']}
@@ -48,9 +49,10 @@ return <<<HTML
 HTML;
 }*/
 
-function resdb_page ($res) {
-global $STD;
-return <<<HTML
+    public function resdb_page($res)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <div class="sformstrip">Review Information</div>
 <table class="sformtable" cellspacing="1">
@@ -128,11 +130,12 @@ return <<<HTML
 <br />
 <br />
 HTML;
-}
+    }
 
-function manage_row ($res, $cat) {
-global $STD;
-return <<<HTML
+    public function manage_row($res, $cat)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;text-align:left" height="100">
     <table border="0" cellpadding="2" cellspacing="0" width="100%" style="height: 100%">
@@ -174,11 +177,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function manage_row_queued ($res, $cat) {
-global $STD;
-return <<<HTML
+    public function manage_row_queued($res, $cat)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="sformlowline" style="padding:0px;text-align:left;background-color:#E5E5E5" height="100">
     <table border="0" cellpadding="2" cellspacing="0" width="100%" style="height: 100%">
@@ -220,11 +224,12 @@ return <<<HTML
   </td>
 </tr>
 HTML;
-}
+    }
 
-function manage_page ($res, $token) {
-global $STD;
-return <<<HTML
+    public function manage_page($res, $token)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sform">
 <form method="post" action="{$STD->tags['root_url']}act=user&amp;param=07" enctype="multipart/form-data">
 <input type="hidden" name="security_token" value="{$token}" />
@@ -324,11 +329,12 @@ return <<<HTML
 </form>
 </div>
 HTML;
-}
+    }
 
-function submit_form ($res) {
-global $STD;
-return <<<HTML
+    public function submit_form($res)
+    {
+        global $STD;
+        return <<<HTML
 <div class="sformstrip">Game under review</div>
 <table class="sformtable" cellspacing="1">
 <tr>
@@ -391,26 +397,29 @@ return <<<HTML
 </tr>
 </table>
 HTML;
-}
+    }
 
-function news_update_block_header ($name) {
-global $STD;
-return <<<HTML
+    public function news_update_block_header($name)
+    {
+        global $STD;
+        return <<<HTML
 <div class='sformstrip'>Games</div>
 <table class='sformtable' cellspacing='1'>
 HTML;
-}
+    }
 
-function news_update_block_footer () {
-global $STD;
-return <<<HTML
+    public function news_update_block_footer()
+    {
+        global $STD;
+        return <<<HTML
 </table>
 HTML;
-}
+    }
 
-function news_update_block_row ($res) {
-global $STD;
-return <<<HTML
+    public function news_update_block_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td width='100' height='100' rowspan='3'>{$res['thumbnail']}</td>
   <td class='sformleftw' colspan='2' height='20'><a href='{$res['url']}'><b>{$res['title']}</b></a></td>
@@ -423,6 +432,5 @@ return <<<HTML
   <td class='sformleftw' colspan='2' valign='top'>{$res['description']}</td>
 </tr>
 HTML;
-}
-
+    }
 }

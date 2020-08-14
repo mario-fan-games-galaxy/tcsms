@@ -1,10 +1,11 @@
 <?php
 
-class template_acp_mod_reviews {
-
-function acp_edit_form ($res) {
-global $STD;
-return <<<HTML
+class template_acp_mod_reviews
+{
+    public function acp_edit_form($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td style='border-bottom:1px solid #666666; font-size:14pt'>&#8212;&#8212; Part 2</td>
   <td style='border-bottom:1px solid #666666' valign='bottom'><b>Base Data and Information</b></td>
@@ -205,7 +206,5 @@ return <<<HTML
   <td>&nbsp;</td>
 </tr>
 HTML;
+    }
 }
-
-}
-?>

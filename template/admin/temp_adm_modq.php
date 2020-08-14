@@ -1,18 +1,20 @@
 <?php
 
-class template_adm_modq {
-
-function message ($message) {
-global $STD;
-return <<<HTML
+class template_adm_modq
+{
+    public function message($message)
+    {
+        global $STD;
+        return <<<HTML
 <br />
 {$message}
 HTML;
-}
+    }
 
-function sub_list_header ($olinks, $tab_index, $tab_url, $boxes, $type) {
-global $STD;
-return <<<HTML
+    public function sub_list_header($olinks, $tab_index, $tab_url, $boxes, $type)
+    {
+        global $STD;
+        return <<<HTML
 Here you can accept or decline new submissions, or modify older ones.  Submissions that have been updated or reported will also appear at the top of the queue.
 <br />
 <br />
@@ -166,22 +168,24 @@ Here you can accept or decline new submissions, or modify older ones.  Submissio
   <td class="rowtitle" width="8%">&nbsp;</td>
 </tr>
 HTML;
-}
+    }
 
-function sub_list_footer ($pages) {
-global $STD;
-return <<<HTML
+    public function sub_list_footer($pages)
+    {
+        global $STD;
+        return <<<HTML
 </table>
 </div>
 <div style="width: 90%; text-align: left">Pages: {$pages}</div>
 <br />
 </div>
 HTML;
-}
+    }
 
-function sub_list_row ($res) {
-global $STD;
-return <<<HTML
+    public function sub_list_row($res)
+    {
+        global $STD;
+        return <<<HTML
 <tr>
   <td class="rowcell2" style="text-align: center;">{$res['qcode']}</td>
   <td class="rowcell2">{$res['title']}</td>
@@ -190,11 +194,12 @@ return <<<HTML
   <td class="rowcell2" style="text-align: center;">{$res['action']}</td>
 </tr>
 HTML;
-}
+    }
 
-function edit_form_header ($res, $form) {
-global $STD;
-return <<<HTML
+    public function edit_form_header($res, $form)
+    {
+        global $STD;
+        return <<<HTML
 <script type='text/javascript'>
   function check_move() {
       id = get_by_id('change_to');
@@ -287,11 +292,12 @@ return <<<HTML
   		  </td>
   		</tr>
 HTML;
-}
+    }
 
-function edit_form_footer ($res, $form) {
-global $STD;
-return <<<HTML
+    public function edit_form_footer($res, $form)
+    {
+        global $STD;
+        return <<<HTML
   		<tr>
   		  <td class='title_fixed' valign='top'>
   		    Admin Comment <a href='javascript:show_hide(18);'><img src='{$STD->tags['image_path']}/info.gif' border='0' alt='?' /></a>
@@ -371,11 +377,12 @@ return <<<HTML
 	</div>
 </form>
 HTML;
-}
+    }
 
-function create ($url, $token, $type) {
-global $STD;
-return <<<HTML
+    public function create($url, $token, $type)
+    {
+        global $STD;
+        return <<<HTML
 Select a root type for the new submission
 <br /><br />
 <div align='center'>
@@ -402,8 +409,5 @@ Select a root type for the new submission
   </form>
 </div>
 HTML;
+    }
 }
-
-}
-
-?>
