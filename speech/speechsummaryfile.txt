@@ -1,0 +1,143 @@
+Good evening.
+
+Since Bowser Tech was started in 2000, it was all about one thing: fangames. With the arrival of MFGG, things grew even bigger.
+
+Sprites, How-tos, user-made content, and more. And we kept growing. Now the site is powered by PHP, and it seems like we have reached a peak.
+
+But we can keep building.
+
+We have the medium, and we have the content.
+
+The one thing that has always been missing from the MFGG site is you. The user.
+
+Everything is too difficult for the user. It's too hard to find what you want, too hard to keep in touch, too hard to submit and manage your files.
+
+This is going to change.
+
+http://mfgg.net/speech/MFGG.png
+
+This is MFGG 2.0.
+
+The first thing you notice when you go to MFGG 2.0 is the look. It's a fresh start, and it's time for a fresh appearance.
+
+It's lighter, it's sleeker, and it's more well organized. Everything is up front where you need it.
+
+For those of you who would rather go back to how it looked before, a MFGG Classic skin will be available from launch.
+
+Now let's jump right into site content.
+
+Have you ever noticed how you can only leave feedback for Games? That's a thing of the past. 
+
+http://mfgg.net/speech/Comments.png
+
+MFGG 2.0 allows you to leave comments for any type of submission, whether it be a How-to, a Sprite, or even a Miscellaneous file.
+
+You can even leave general comments for Games in addition to Reviews. It's a bulletin board system inside a website.
+
+Of course, comments wouldn't mean anything without people knowing who you are. Now, with user profile pages, people can see who you are and get in contact with you.
+
+http://mfgg.net/speech/Profiles.png
+
+But of course, the user-based experience is incomplete without MFGG Messenger.
+
+http://mfgg.net/speech/Messages.png
+
+For the first time ever, in any fangame or sprite website, you can directly contact site users.
+
+Have a question you need to ask the staff? Now, you can separately contact the site staff with any problems you might have.
+
+All automated messages are sent and received through the messenger.
+
+Submissions accepted? Declined? You'll be told. Admin change one of your files? You'll be told why.
+
+In the future, you'll be able to subscribe to submissions to see when they're updated as well.
+
+This leads well into another new feature: the reporting system.
+
+http://mfgg.net/speech/Report.png
+
+Stolen fangame? Messenger harassment? Derogatory comments? With the reporting system, any submission, comment, or private message can be reported directly to the site staff.
+
+No need to hunt around for a way to tell someone: everything is at your fingertips with the Messenger.
+
+So now that you know who you're going to be interacting with and how, let's talk about the content.
+
+There's never been a better time to fangame. With a rise in the popularity of Game Maker, the latest Multimedia Fusion extensions, and a surge in activity, if you want to start making fangames, this is the time to do it.
+
+But you need a better platform to showcase it, you say? That's where we come into play.
+
+Updates now place an emphasis on fangames. Instead of just being mixed in, they're shown upfront as a priorty.
+
+http://mfgg.net/speech/Update.png
+
+With the new update layout, games now have descriptions and thumbnails displayed, which lets anyone show off their new fangame on the main page. 
+
+And as for individual submission profiles, everything is bigger and better.
+
+http://mfgg.net/speech/Submission.png
+
+You can see any submission's entire Update History, so you can check when and why a game was updated. Also, you can view how many times something's been downloaded and viewed, meaning you can search for submissions by popularity.
+
+Enough about that. Let's cut to the chase and talk about our big new feature: the Crossbar Navigation System.
+
+http://mfgg.net/speech/Crossbar.png
+
+With the Crossbar System, you can refine your searches with incredible precision.
+
+Under current MFGG software, you could sort by categories like Enemies, Friends, and Backgrounds. Now, you can go even further.
+
+In addition to the already existing selections you can make, you can filter by format, method of creation, game, and character.
+
+And now, you won't have to keep going back over and over. Just change what you want, and click Refine. The page is updated almost instantly.
+
+And it works for all the other sections too. Games can now be organized by types, like Minigames or Platformers.
+
+Does a file you're submitting not fit into a single category category? Stick it in a couple. That way, anyone can find what they're looking for.
+
+And instead of clumping everything together into one huge page, it works like a message board: you can set how many items you want displayed on each page.
+
+To make finding files even easier, the Miscellaneous section has been split into two. Sounds and Music now make up an entirely separate category.
+
+In addition to sound files, you can now submit original music as well. It makes MFGG just that much more powerful of a resource.
+
+And for Game Maker users out there, we now accept Game Maker how-tos in addition to ones for Clickteam products.
+
+Best of all, the search now works the way it's meant to.
+
+Need to find sprites from Super Mario Brothers 1? Put in the full name, SMB1, or even just SMB, and every result will come up. You can find the files you want quickly.
+
+There's no unnecessary grids or backtracking. It's the most simple and intuitive sprite and fangame filtering system. Ever.
+
+So many things are changing with MFGG 2.0 that extra security and quality control is inevitable. And that's just what we've added.
+
+A new submission approval system will let you know that things getting accepted to the site are quality. Now, submissions take anywhere between two and four admins and mods to approve.
+
+And if you make a bad update to your file, your submission won't be lost this time.
+
+You know the Who, the What, the Why, and the How. So let's bring up tonight's big surprise: the Where.
+
+For the first time in MFGG's history, MFGG and its forums will be hosted from the same server.
+
+You can expect site and forum interactivity soon: the very same account you use on the site will also be the one you use for the forums. 
+
+And pretty soon, you'll automatically get Super Submitter and Super Reviewer badges based on the number of submissions you make.
+
+But there's still one more exciting thing about our new server. I'll give you four words:
+
+No.
+
+More.
+
+Bandwidth.
+
+Problems.
+
+MFGG's new server is more reliable than ever, and with an insurmountable amount of bandwidth and space at our fingertips, never again will you be unable to access the site mid-way through the month.
+
+You lived in the past, you experienced the present, and now, you are the future. MFGG 2.0 is about you and the games you make. It's time to be part of the next generation of fangaming.
+
+So you want to know a release date?
+
+It starts now.
+
+http://www.mfgg.net

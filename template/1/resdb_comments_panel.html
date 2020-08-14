@@ -1,0 +1,29 @@
+<div align='center' id='comments'>
+<table class='tableheader' cellspacing='0' cellpadding='2'>
+{{comments}}
+</table>
+</div>
+<br />
+<table width='90%' cellspacing='0' cellpadding='0' align='center'>
+  <tr>
+    <td width='100%' align='right'>
+      <span style='font-size:14pt'><a href="javascript:show_hide('addc');">Add Comment</a></span>
+    </td>
+  </tr>
+</table>
+<div align='center' id='addc' style='display:none'>
+  <form method='post' action='{{add_comment_url}}'>
+  <table class='tableheader' cellspacing='0' cellpadding='2'>
+    <tr>
+      <td align='center' bgcolor='#333344'>
+        <br />
+        <textarea name='message' cols='40' rows='4'></textarea>
+        <br />
+        <input type='submit' value='Add Comment' />
+        <br />&nbsp;
+      </td>
+    </tr>
+  </table>
+  </form>
+</div>
+<br />

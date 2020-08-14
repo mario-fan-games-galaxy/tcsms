@@ -1,0 +1,42 @@
+Select a new group to merge existing users into
+<form method='post' action='{{root_url}}act=ucp&amp;param=12'>
+<input type='hidden' name='gid' value='{{gid}}' />
+<input type='hidden' name='security_token' value='{{security_token}}' />
+<div align='center'>
+<br />
+	<table border='0' cellspacing='0' cellpadding='1' width='90%'>
+	  <tr>
+ 		  <td width='30%' class='title'>
+ 		    Group to Drop
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <b>{{group}}</b>
+ 		  </td>
+ 		</tr>
+	  <tr>
+ 		  <td width='30%' class='title'>
+ 		    Group to Merge
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <b>{{group_menu}}</b>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td width='70%' class='field'>
+        <input type='submit' class='button' value='Drop Group' /> 
+ 		  </td>
+ 		</tr>
+ 	</table>
+</div>
+</form>

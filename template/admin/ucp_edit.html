@@ -1,0 +1,207 @@
+<script type='text/javascript'>
+  function check_drop() {
+      form_check = confirm('Warning: Dropping this user will permanently delete them from the database.\n\nDo you still wish to continue?');
+    
+      if (form_check == true) {
+          return true;
+      } else {
+          return false;
+      }
+  }
+</script>
+
+Use this page to modify the selected user.  To change the user's password, fill in the password boxes, leave them blank otherwise.
+<form method='post' action='{{root_url}}act=ucp&amp;param=03'>
+<input type='hidden' name='uid' value='{{id}}' />
+<input type='hidden' name='security_token' value='{{security_token}}' />
+<div align='center'>
+<br />
+	<table border='0' cellspacing='0' cellpadding='1' width='90%'>
+	  <tr>
+ 		  <td width='30%' class='title'>
+ 		    User ID
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <b>{{id}}</b>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Username
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='text' name='username' class='textbox' size='40' value='{{username}}' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Email
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='text' name='email' class='textbox' size='40' value='{{email}}' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Group
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{group}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Registered IP
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <b>{{reg_ip}}&nbsp;</b>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Current IP
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <b>{{cur_ip}}&nbsp;</b>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    New Password
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='password' name='password' class='textbox' size='40' value='' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Retype Password
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='password' name='password2' class='textbox' size='40' value='' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Website
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='text' name='website' class='textbox' size='40' value='{{website}}' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Website URL
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='text' name='weburl' class='textbox' size='40' value='{{weburl}}' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Personal Icon
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='text' name='icon' class='textbox' size='40' value='{{icon}}' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Show Email
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{show_email}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Default Order
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{order}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Skin
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{skin_box}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Items per Page
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{items}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td width='70%' class='field'>
+        <input type='submit' class='button' value='Update User' /> 
+ 		    <input type='submit' name='drop_item' class='button' value='DROP User' style='background-color: #FF6169; color: white' onclick='return check_drop();' />
+ 		  </td>
+ 		</tr>
+ 	</table>
+</div>
+</form>

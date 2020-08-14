@@ -1,0 +1,77 @@
+  <div align='center'>
+	  <img src='{{image_path}}/submitit_table_header.gif' alt='Game and Lib Submission' />
+	</div>
+	<div align='center'>
+	  <span class='title'>
+	    Resource Database
+	  </span>
+	  <br />
+	  Submitting and adding files used to be a long manual process.  Now it's automatic.  Fill in the fields and attach your file to automatically send it to the moderation queue where it will wait for aproval from the administrators.
+	</div>
+	<br />
+	<div align='center'>
+	  <table border='0' width='90%'>
+	    <tr>
+	      <td class='tablecell1' colspan='2'>
+	        <span class='boxheader'>Resource Database</span>
+	      </td>
+	    </tr>
+    </table>
+    <!--
+    <table class='tableheader' cellspacing='0' cellpadding='0'>
+      <tr>
+	      <td width='100%' colspan='2' height='25'>
+	        <table border='0' cellspacing='0' cellpadding='0' width='100%'>
+	          <tr>
+	            <td width='50%'>
+	              <form method='POST' action='{{submit_url}}'>
+	              <input type='submit' name='submit' value='Re-Order' class='button'>
+	              <select name='order_type' size='1' class='selectbox'>
+	                <option value='id'>Date</option>
+	                <option value='title'>Title</option>
+	                <option value='creator'>Creator</option>
+	                <option value='updated'>Updates</option>
+	                <option value='downloads'>Downloads</option>
+	              </select><select name='order_dir' size='1' class='selectbox'>
+	                <option value='ASC'>ASC</option>
+	                <option value='DESC'>DESC</option>
+	              </select>
+	              </form>
+	            </td>
+	          </tr>
+	        </table>
+	      </td>
+	    </tr>
+	  </table>
+	  <br />-->
+	  <table class='tableheader' cellspacing='0' cellpadding='0'>
+	  <tr><td height='30' width='100' align='center' class='tablecell3'>
+    <input type='submit' value='Refine Filter' class='button'>
+    </td>
+    <td height='30' class='tablecell3'>&nbsp;
+    <select class='selectbox'><option>Sprite Sheets</option></select> 
+    <select class='selectbox'><option>Rip Type</option></select> 
+    <select class='selectbox'><option>Category</option></select> 
+    <select class='selectbox'><option>Game</option></select> 
+    <select class='selectbox'><option>Character</option></select>
+    </td></tr></table>
+	  <table class='tableheader' cellspacing='0' cellpadding='0'>
+	    {{rows}}
+	  </table>
+	  <table class='tableheader' cellspacing='0' cellpadding='0'>
+      <tr>
+	      <td width='100%' colspan='2' height='25' align='center'>
+	        Pages: {{pages}}
+	      </td>
+	    </tr>
+      <tr>
+        <td width='50%' align='left'>
+          <form method='POST' action='{{submit_url}}'>
+          <input type='submit' name='reorder' value='Re-Order' class='button'>
+          {{order_box}}
+          </form>
+        </td>
+	    </tr>
+	  </table>
+	  <br />
+	</div>

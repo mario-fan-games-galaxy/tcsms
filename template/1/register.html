@@ -1,0 +1,81 @@
+	<div align='center'>
+	  <img src='{{image_path}}/register_table_header.gif' alt='Accounts and Registration' />
+	</div>
+	<p />
+	<div align='center'>
+	  <span class='title'>
+	    Register
+	  </span>
+	  <br />
+	  In order to automatically upload your own files and libs, you need to register an account.  Required fields are marked with a <span class='hilight'>*</span>.  Registering also allows you to submit reviews.
+	</div>
+	<br />
+	<div align='center'>
+	  <form method='post' action='{{register_url}}'>
+	  <input type='hidden' name='security_token' value='{{security_token}}' />
+	  <table border='0' width='80%'>
+	    <tr>
+	      <td class='tablecell1' colspan='2'>
+	        <span class='boxheader'>Registration Form</span>
+	      </td>
+	    </tr>
+    </table>
+	  <table class='tableheader'>
+	    <tr>
+	      <td class='tablecell1' width='20%'><br />
+	        Username<span class='hilight'>*</span>
+	      </td>
+	      <td class='tablecell2' width='80%'><br />
+	        <input type='text' name='username' size='40' class='textbox' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class='tablecell1'>
+	        Password<span class='hilight'>*</span>
+	      </td>
+	      <td class='tablecell2'>
+	        <input type='password' name='password' size='40' class='textbox' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class='tablecell1'>
+	        Email<span class='hilight'>*</span>
+	      </td>
+	      <td class='tablecell2'>
+	        <input type='text' name='email' size='40' class='textbox' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class='tablecell1'>
+	        Personal Image
+	      </td>
+	      <td class='tablecell2'>
+	        <input type='text' name='image' size='40' value='http://' class='textbox' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class='tablecell1'>
+	        Website
+	      </td>
+	      <td class='tablecell2'>
+	        <input type='text' name='website' size='40' class='textbox' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class='tablecell1'>
+	        Website URL
+	      </td>
+	      <td class='tablecell2'>
+	        <input type='text' name='weburl' value='http://' size='40' class='textbox' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class='tablecell1'>
+	      </td>
+	      <td class='tablecell2'>
+	        <input type='submit' name='submit' value='Register' class='button' />
+	      </td>
+	    </tr>
+	  </table>
+	  </form>
+	</div>

@@ -1,0 +1,77 @@
+		<div id='{{id_name}}' style='display:none'>
+		<table border='0' width='100%'>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Category
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <select name='{{req_tag}}[tag][]' class='selectbox' size='1'>
+		  <option value='-'>---</option>
+	          <option value='FULL_GAME'>Full Game</option>
+			  <option value='DEMO'>Game Demo</option>
+
+			  <option value='SCRAPPED'>Scrapped Game</option>
+	        </select>
+	      </td>
+	    </tr>
+		<tr>
+	      <td width='30%' class='tablecell1'>
+	        File
+	      </td>
+	      <td width='70%' class='tablecell2'>
+
+	        <input type='file' name='{{req_tag}}[file]' class='textbox' size='40' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Thumbnail
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='file' name='{{opt_tag}}[thumbnail]' class='textbox' size='40' />
+
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Title
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <input type='text' name='{{req_tag}}[title]' class='textbox' size='40' />
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Description
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <textarea name='{{req_tag}}[description]' rows='6' cols='30' class='textbox'></textarea>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td width='30%' class='tablecell1'>
+	        Keyword Tags
+	      </td>
+	      <td width='70%' class='tablecell2'>
+	        <textarea name='{{req_tag}}[misc_tags]' id='tags_{{cid}}' rows='2' cols='30' class='textbox'></textarea>
+	        <br /><a href="javascript:show_hide('a');show_hide('b');">Show / Hide All Tags</a>
+	      </td>
+	    </tr>
+	    <tr id='menu_a' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed'>
+  		    &nbsp;
+  		  </td>
+  		</tr>
+  		<tr id='menu_b' style='display:none'>
+  		  <td class='title_fixed' style='border-top: 1px solid gray; border-bottom: 1px solid gray;'>
+  		    Tag Keyword List
+  		  </td>
+  		  <td class='field_fixed' style='border-top: 1px solid gray; border-bottom: 1px solid gray;'>
+  		    {{all_tags}}
+  		  </td>
+  		</tr>
+	   </table>
+	   </div>

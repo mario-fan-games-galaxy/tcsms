@@ -1,0 +1,33 @@
+	<br />
+	<br />
+	<div align='center'>
+	  <table border='0' cellpadding='0' cellspacing='1' width='90%'>
+	    <tr>
+	      <td class='tablecell1'>
+	        <span class='boxheader'>Report Submission</span>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class='tablecell2' style='border:1px solid gray; background-color:#111122'>
+	        <form method='POST' action='{{report_url}}'>
+	        <input type='hidden' name='id' value='{{id}}'>
+	        <table border='0' cellspacing='2' cellpadding='2' width='100%'>
+	          <tr>
+	            <td width='30%'><b>Submission</b></td>
+	            <td width='70%' class='highlight'><b>{{title}}</b></td>
+	          </tr>
+	          <tr>
+	            <td width='30%' valign='top' style='border-top:1px solid gray'><b>Report</b><br />Enter your report in this box to alert site staff to a submission theft or objectionable content.</td>
+	            <td width='70%' valign='top' style='border-top:1px solid gray'><textarea rows='6' cols='40' name='report'></textarea></td>
+	          </tr>
+	          <tr>
+	            <td width='100%' colspan='2' style='border-top:1px solid gray' align='center'>
+	              <input type='submit' value='Send Report' class='button'>
+	            </td>
+	          </tr>
+	        </table>
+	        </form>
+	      </td>
+	    </tr>
+	  </table>
+	</div>

@@ -1,0 +1,235 @@
+Here you can accept or decline new submissions, or modify older ones.  Submissions that have been updated or reported will also appear at the top of the queue.
+<br />
+<br />
+<div id='menu_1' align='center' style='display:none'>
+<form method='post' action='{{root_url}}act=modq&amp;param=05&amp;c={{type}}'>
+<table cellspacing='0' cellpadding='2' width='90%' style='border:2px solid #FF6169'>
+    <tr>
+ 		  <td colspan='2' class='header' style='background-color: #FF6169; color:white;'>
+ 		    <table border='0' cellspacing='0' cellpadding='0' width='100%'>
+ 		      <tr>
+ 		        <td width='50%'>
+ 		          Remove Item
+ 		        </td>
+ 		        <td width='50%' align='right'>
+ 		          <a href='javascript:show_hide(1);show_hide(2);'>
+ 		            <img src='{{image_path}}/red_close.gif' border='0' alt='[X]' title='Close Window' /></a>
+ 		        </td>
+ 		      </tr>
+ 		    </table>
+ 		  </td>
+ 		</tr>
+	  <tr>
+ 		  <td class='title_fixed' valign='top' style='background-color:#FFD1CF;'>
+ 		    Admin Comment
+ 		  </td>
+ 		  <td class='field_fixed' style='background-color:#FFD1CF;'>
+ 		    <input type='hidden' name='rid' id='rid_d' value='' />
+ 		    <input type='hidden' name='omit_comment' value='0' />
+ 		    <input type='hidden' name='virus_check' value='1' />
+  		  <textarea name='admincomment' rows='4' cols='30' class='textbox'></textarea>
+  		  {{dq_override}}
+  		</td>
+ 		</tr>
+ 		<tr>
+ 		  <td class='title_fixed' valign='top' style='background-color:#FFD1CF;'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td class='field_fixed' style='background-color:#FFD1CF;'>
+  		  <input type='submit' value='DROP Record' class='button' style='background-color: #FF6169; color: white' />
+  		</td>
+ 		</tr>
+ 	</table>
+</form>
+</div>
+
+<div id='menu_3' align='center' style='display:none'>
+<form method='post' action='{{root_url}}act=modq&amp;param=04&amp;c={{type}}'>
+<table cellspacing='0' cellpadding='2' width='90%' style='border:2px solid #5D669A;'>
+    <tr>
+ 		  <td colspan='2' class='header'>
+ 		    <table border='0' cellspacing='0' cellpadding='0' width='100%'>
+ 		      <tr>
+ 		        <td width='50%'>
+ 		          Accept Item
+ 		        </td>
+ 		        <td width='50%' align='right'>
+ 		          <a href='javascript:show_hide(3);show_hide(2);'>
+ 		            <img src='{{image_path}}/blue_close.gif' border='0' alt='[X]' title='Close Window' /></a>
+ 		        </td>
+ 		      </tr>
+ 		    </table>
+ 		  </td>
+ 		</tr>
+	  <tr>
+ 		  <td class='title_fixed' valign='top'>
+ 		    Admin Comment
+ 		  </td>
+ 		  <td class='field_fixed'>
+  		  <textarea name='admincomment' rows='4' cols='30' class='textbox' onclick="uc_box('oc1');"></textarea>
+  		  <br /><input type='checkbox' name='omit_comment' id='oc1' value='1' class='checkbox' checked='checked' /> Do not include comment
+  		  <br /><input type='checkbox' name='virus_check' value='1' class='checkbox' /> I have checked that this file is virus free
+  		  {{dq_override}}
+  		</td>
+ 		</tr>
+ 		<tr>
+ 		  <td class='title_fixed' valign='top'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td class='field_fixed'>
+ 		    <input type='hidden' name='rid' id='rid_a' value='' />
+  		  <input type='submit' value='Accept Submission' class='button' />
+  		</td>
+ 		</tr>
+ 	</table>
+</form>
+</div>
+
+<div id='menu_4' align='center' style='display:none'>
+<form method='post' action='{{root_url}}act=modq&amp;param=06&amp;c={{type}}'>
+<table cellspacing='0' cellpadding='2' width='90%' style='border:2px solid #5D669A;'>
+    <tr>
+ 		  <td colspan='2' class='header'>
+ 		    <table border='0' cellspacing='0' cellpadding='0' width='100%'>
+ 		      <tr>
+ 		        <td width='50%'>
+ 		          Re-queue Item
+ 		        </td>
+ 		        <td width='50%' align='right'>
+ 		          <a href='javascript:show_hide(4);show_hide(2);'>
+ 		            <img src='{{image_path}}/blue_close.gif' border='0' alt='[X]' title='Close Window' /></a>
+ 		        </td>
+ 		      </tr>
+ 		    </table>
+ 		  </td>
+ 		</tr>
+	  <tr>
+ 		  <td class='title_fixed' valign='top'>
+ 		    Admin Comment
+ 		  </td>
+ 		  <td class='field_fixed'>
+ 		    <input type='hidden' name='rid' id='rid_r' value='' />
+ 		    <input type='hidden' name='omit_comment' value='0' />
+ 		    <input type='hidden' name='virus_check' value='1' />
+  		  <textarea name='admincomment' rows='4' cols='30' class='textbox'></textarea>
+  		</td>
+ 		</tr>
+ 		<tr>
+ 		  <td class='title_fixed' valign='top'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td class='field_fixed'>
+  		  <input type='submit' value='Re-Queue Submission' class='button' />
+  		</td>
+ 		</tr>
+ 	</table>
+</form>
+</div>
+
+<div id='menu_5' align='center' style='display:none'>
+<form method='post' action='{{root_url}}act=modq&amp;param=07&amp;c={{type}}'>
+<table cellspacing='0' cellpadding='2' width='90%' style='border:2px solid #5D669A;'>
+    <tr>
+ 		  <td colspan='2' class='header'>
+ 		    <table border='0' cellspacing='0' cellpadding='0' width='100%'>
+ 		      <tr>
+ 		        <td width='50%'>
+ 		          Move Item
+ 		        </td>
+ 		        <td width='50%' align='right'>
+ 		          <a href='javascript:show_hide(5);show_hide(2);'>
+ 		            <img src='{{image_path}}/blue_close.gif' border='0' alt='[X]' title='Close Window' /></a>
+ 		        </td>
+ 		      </tr>
+ 		    </table>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td class='title_fixed' valign='top'>
+ 		    New Parent Category
+ 		  </td>
+ 		  <td class='field_fixed'>
+  		  {{cat_list}}
+  		</td>
+ 		</tr>
+	  <tr>
+ 		  <td class='title_fixed' valign='top'>
+ 		    Admin Comment
+ 		  </td>
+ 		  <td class='field_fixed'>
+ 		    <input type='hidden' name='rid' id='rid_m' value='' />
+ 		    <input type='hidden' name='virus_check' value='1' />
+  		  <textarea name='admincomment' rows='4' cols='30' class='textbox' onclick="uc_box('oc2');"></textarea>
+  		  <br /><input type='checkbox' name='omit_comment' id='oc2' value='1' class='checkbox' checked='checked' /> Do not include comment
+  		</td>
+ 		</tr>
+ 		<tr>
+ 		  <td class='title_fixed' valign='top'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td class='field_fixed'>
+  		  <input type='submit' value='Move Submission' class='button' />
+  		</td>
+ 		</tr>
+ 	</table>
+</form>
+</div>
+
+<!-- Normal Page -->
+
+<div id='menu_2' align='center'>
+	<table border='0' cellspacing='0' cellpadding='1' width='90%' style='border-bottom:1px solid #5D669A'>
+		<tr>
+		  <td width='100%' colspan='5' class='subheader'>
+		    Unmoderated Submission Pool
+		  </td>
+		</tr>
+		<tr>
+		  <td width='4%' class='title'>
+		    &nbsp;
+		  </td>
+		  <td width='54%' class='title'>
+		    <a href='{{url}}&amp;o={{url_title}}'>Title{{order_title}}</a> 
+		  </td>
+		  <td width='27%' class='title'>
+		    <a href='{{url}}&amp;o={{url_user}}'>Creator{{order_user}}</a>
+
+		  </td>
+		  <td width='15%' class='title'>
+		    Actions
+		  </td>
+		</tr>
+		{{unmod_list}}
+		
+	</table>
+	Pages: {{umod_pages}}
+	<br />
+  <br />
+	<table border='0' cellspacing='0' cellpadding='1' width='90%' style='border-bottom:1px solid #5D669A'>
+
+		<tr>
+		  <td width='100%' colspan='5' class='subheader'>
+		    Moderated Submission Pool
+		  </td>
+		</tr>
+		<tr>
+		  <td width='4%' class='title'>
+		    &nbsp;
+		  </td>
+		  <td width='54%' class='title'>
+		    <a href='{{url}}&amp;o={{url_title}}'>Title{{order_title}}</a> 
+		  </td>
+		  <td width='27%' class='title'>
+		    <a href='{{url}}&amp;o={{url_user}}'>Creator{{order_user}}</a>
+
+		  </td>
+		  <td width='15%' class='title'>
+		    Actions
+		  </td>
+		</tr>
+		{{mod_list}}
+	</table>
+	Pages: {{mod_pages}}
+	<br />
+</div>
+&nbsp;

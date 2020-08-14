@@ -1,0 +1,79 @@
+You are free to submit content to MFGG, as long as it is kept within the rules. Any content violating these rules will not be accepted into MFGG's archive.
+
+<dl>
+<dt><span style='font-size:14pt; font-weight:bold'>General Rules of Thumb</span><br /><br /></dt>
+
+<dd>All submissions <b>must</b> be related to Nintendo's Mario series of entertainment, hence the title, Mario Fan Games Galaxy. Notably, the Donkey Kong, Wario and Yoshi series are considered parts of the Mario universe due to their common origins, and thus acceptable contents of submissions of all kinds. All Games should feature Mario and other characters and/or elements from the above defined Mario universe as a primary focus. Submissions focusing on any other gaming series will be declined. However, characters from outside the scope of Mario may make an appearance in the game so long as Mario is the main focus. Graphics submissions must consist of Mario graphics, and Tutorials must demonstrate elements that would help people create Mario-based fangames.<br /><br /><br /></dd>
+
+<dd><b>Do not steal content from others</b>, as it is highly unethical. We at MFGG have our ways of determining whether work is stolen from others, and will readily discriminate against thieves. Anyone submitting stolen content will be banned from the site immediately. However, resources ripped from a commercial ROM (i.e. a Mario game) are accepted.<br /><br /><br /></dd>
+
+<dd>No inappropriate content of any sort. Unnecessary vulgar aspects such as nudity, excessive swearing, or slander will not be accepted in any category. MFGG is to be kept family-safe.<br /><br /><br /></dd>
+
+<dd>All content should demonstrate care and effort. Rushed or useless sprites and hurried, empty Games will be declined. Further explanation below.<br /><br /><br /></dd>
+
+
+<dt><span style='font-size:14pt; font-weight:bold'>Guidelines for Submitting Games</span><br /><br /></dt>
+
+<dd>All Games must be playable. Any external files required to run the game must be included in its download, with the exception of files listed under the Miscellaneous category of the Downloads section and commonly-used external libraries (such as DirectX or the XNA Framework). There must be some tangible form of gameplay in Games, as opposed to a disorganized mass of objects.<br /><br /><br /></dd>
+
+<dd>Your game should be possible to complete, and not just a level you can only walk halfway through. We will not accept "engine tests", in which all you can do is walk around and test out basic elements. Demos, or yet to be completed games, must contain at least one full-length level for a developed engine and at least two for a more basic one. Even if your game is playable, however, if it is just a rushed edit of an engine you didn't make, it will probably end up being declined. Games should have a defined beginning and end; games that end with an error message will be declined.<br /><br /><br /></dd>
+
+<dd>MFGG now accepts game submissions as large as 50 megabytes in size. This larger size limit is intended so that longer games may use higher-quality graphics and audio. Please do not abuse this privilege. Take care to keep game sizes manageable by removing unused resources and by encoding audio to minimize file sizes. If you submit a simple minigame that uses a 40-MB .WAV file for background music, for example, the submission may be declined for being needlessly large.<br /><br /><br /></dd>
+
+
+<dt><span style='font-size:14pt; font-weight:bold'>Guidelines for Submitting Graphics Files</span><br /><br /></dt>
+
+<dd>The accepted formats for sprites and backgrounds are GIF (not animated) and PNG. We will not accept JPEGs. We also accept Library Files ("Libs") for the programs "The Games Factory", "Multimedia Fusion", "The Games Factory 2", "Multimedia Fusion 2", or "Construct".<br /><br /><br /></dd>
+
+<dd>Libs must be compiled in the proper format. Library files are graphics, no more and no less; as such, do not load them full of excessive background music, movements, and sound effects.<br /><br /><br /></dd>
+
+<dd>Graphics submissions, whether in the form of sprite sheets or libs, should be complete enough to be of use to fangame makers. For example, a sprite sheet should include enough frames to comprise a complete animation, and a custom-styled tileset should generally provide enough content to design a simple level. All Sprites must demonstrate that effort was put into them. Recolors or other simple edits of existing sprites will generally be declined.<br /><br /><br /></dd>
+
+<dd>We will not accept useless sprites. Even if they have decent quality, sprites can still be useless. A perfect example is a Super Saiya-jin Luigi holding a shotgun... standard Mario sprites are accepted, but not absurd edits. Similarly, sprite sheets and tilesets should be easy to use; sheets with large amounts of wasted space or obtrusive watermarks will be declined.<br /><br /><br /></dd>
+
+<dd>Make sure that tilesets tile properly before you submit them. Any practical size is permitted for the tiles; 16x16 is a common size.<br /><br /><br /></dd>
+
+<dd>In the case of graphics ripped from official Mario games, make sure that the graphics are not already available elsewhere on MFGG before you make a new submission. Redundant graphics rips will be declined unless the new submission provides additional content or substantially improved organization compared with the original rip.<br /><br /><br /></dd>
+
+
+<dt><span style='font-size:14pt; font-weight:bold'>Guidelines for Submitting Reviews</span><br /><br /></dt>
+
+<dd>A review is a critical analysis of the game you're reviewing, so it's a little more substantial than a comment on the page saying "This is great!!! 10/10." When writing a review, you're trying to help other people determine whether or not they should play the game. To that end, you need to be descriptive. Simple descriptions like "GREAT!" for gameplay and "Really really bad" for sound don't cut it. You need to explain why you think they deserve the scores you give them. For example, explaining the basics of the gameplay and then stating what works and what doesn't will help the reader not only get the gist of the game, but influence their decision on whether or not to play it. The same goes for graphics, sound, and replay - although to a lesser amount, as they aren't quite as important.<br /><br /><br /></dd>
+
+<dd>Ironically, your final words are the first thing the reader will see of your review on the game's page, so it should project your overall opinion of the game. Keep them short and to the point. Your final score should be determined by what you think is best - it does not have to be an average of the other scores, or even a weighted average. It could be a score you simply feel the game deserves to have regardless of its individual qualities. Just do not make it too wildly different from the rest of your scores without good reason.<br /><br /><br /></dd>
+
+<dd>All reviews should follow the basic guidelines of proper English. While an occasional misspelling or punctuation error won't affect whether or not we accept it, poorly written reviews will be declined regardless of actual quality as criticism.<br /><br /><br /></dd>
+
+<dd>Other basic commenting rules still apply in reviews - don't be a jerk, be mature in your analysis, and do not make reviews simply to troll the game's creator. Beyond that, feel free to be yourself in your review, injecting it with your humour and personality to make it an entertaining read.<br /><br /><br /></dd>
+
+
+<dt><span style='font-size:14pt; font-weight:bold'>Guidelines for Submitting Tutorials</span><br /><br /></dt>
+
+<dd>Tutorials should generally demonstrate an element or elements from the Mario games. MFGG also accepts general-purpose tutorials that demonstrate general-purpose game design information - for example, how to use external files in Game Maker or how to make an action RPG in Multimedia Fusion 2.<br /><br /><br /></dd>
+
+<dd>We will allow a Tutorial for simple concepts if designed in a user-friendly and helpful manner, but tutorials for anything as simple as scrolling, which in most programs is one or two lines of code, will not be accepted. Simple problems like these are best addressed on the forums.<br /><br /><br /></dd>
+
+<dd>Tutorials that focus on programming should be user-friendly and reasonably easy to understand. Such tutorials should teach proper coding habits and sufficient commenting that users can understand how the code works.<br /><br /><br /></dd>
+
+
+<dt><span style='font-size:14pt; font-weight:bold'>Guidelines for Submitting Sound Files</span><br /><br /></dt>
+
+<dd>Sound files must be as high quality as possible. We will not accept poorly recorded or fuzzy sound effects that would not be useful in fangames.<br /><br /><br /></dd>
+
+<dd>Please submit all recorded music in .OGG format. MIDI music must be your own composition and not taken from another website, even if you cannot find the original composer's name.<br /><br /><br /></dd>
+
+
+<dt><span style='font-size:14pt; font-weight:bold'>Guidelines for Submitting Miscellaneous Files</span><br /><br /></dt>
+
+<dd>The Miscellaneous section is designed specifically for resources which prove helpful in either running or creating Games. Feel free to submit resources such as fonts or system files, but not archive gimmicks such as screensavers or wallpapers.<br /><br /><br /></dd>
+
+
+<dt><span style='font-size:14pt; font-weight:bold'>Guidelines for Comments</span><br /><br /></dt>
+<dd>The commenting system is designed for purposes such as critiquing work or for seeking help on how to advance past a certain point in a game. All comments should be on-topic and civil in tone. Consider the mainsite commenting guidelines to be an extension of the <a href="https://forums.mfgg.net/viewtopic.php?f=26&t=20241">forum rules</a>.<br /><br /><br /></dd>
+
+
+
+<dd>Remember that submissions must be checked by multiple Quality Control staffers before they can appear on the site, and since MFGG staff has lives outside of the site, it may take a few weeks before a submission is accepted or declined.<br /><br /><br /></dd>
+
+<dd>If you have any questions or issues with the guidelines or the interpretation thereof, please PM an administrator.<br /><br /><br /></dd>
+</dl>

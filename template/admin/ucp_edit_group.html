@@ -1,0 +1,199 @@
+<script type='text/javascript'>
+  function check_drop() {
+      form_check = confirm('Warning: Dropping this group will permanently delete them from the database.\n\nDo you still wish to continue?');
+    
+      if (form_check == true) {
+          return true;
+      } else {
+          return false;
+      }
+  }
+</script>
+
+Use this page to modify the selected group.
+<form method='post' action='{{root_url}}act=ucp&amp;param=09'>
+<input type='hidden' name='gid' value='{{gid}}' />
+<input type='hidden' name='security_token' value='{{security_token}}' />
+<div align='center'>
+<br />
+	<table border='0' cellspacing='0' cellpadding='1' width='90%'>
+	  <tr>
+ 		  <td width='30%' class='title'>
+ 		    Group ID
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <b>{{gid}}</b>
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Group Name
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='text' name='group_name' class='textbox' size='40' value='{{group_name}}' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Group Title
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    <input type='text' name='group_title' class='textbox' size='40' value='{{group_title}}' />
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Can Submit
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{can_submit}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Can Review
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{can_review}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Can Comment
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{can_comment}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Can Report
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{can_report}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Can Modify
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{can_modify}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Can Use Messenger
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{can_msg}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    Moderator
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{moderator}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    ACP Access
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{acp_access}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    ACP: Mod Queue
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{acp_modq}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    ACP: User Control
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{acp_users}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    ACP: News
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{acp_news}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    ACP: Messages
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{acp_msg}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title' valign='top'>
+ 		    ACP: Root Admin
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    {{acp_super}}
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    &nbsp;
+ 		  </td>
+ 		  <td width='70%' class='field'>
+ 		    &nbsp;
+ 		  </td>
+ 		</tr>
+ 		<tr>
+ 		  <td width='30%' class='title'>
+ 		    Complete Form
+ 		  </td>
+ 		  <td width='70%' class='field'>
+        <input type='submit' class='button' value='Update Group' /> 
+ 		    <input type='submit' name='drop_item' class='button' value='DROP Group' style='background-color: #FF6169; color: white' />
+ 		  </td>
+ 		</tr>
+ 	</table>
+</div>
+</form>

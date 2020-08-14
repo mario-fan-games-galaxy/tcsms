@@ -1,0 +1,122 @@
+	<br />
+	<div align='center'>
+	  <table border='0' width='90%'>
+	    <tr>
+	      <td class='tablecell1' colspan='2'>
+	        <span class='boxheader'>Resource Database</span>
+	      </td>
+	    </tr>
+    </table>
+    <table class='tableheader' cellspacing='0' cellpadding='0'>
+	    <tr>
+        <td class='tablecell3' width='100' align='center'>
+          {{thumbnail}}
+        </td>
+        <td class='tablecell3' align='left' height='100' valign='top'>
+          <table border='0' cellpadding='2' cellspacing='0' width='100%'>
+            <tr>
+              <td height='25' width='60%' bgcolor='#333344'>
+                <b class='highlight'>{{title}}</b>
+              </td>
+              <td height='25' width='25%' bgcolor='#555566'>
+      	      By: <b>{{author}}</b>
+              </td>
+              <td height='25' width='15%' align='right' bgcolor='#555566'>
+                {{email_icon}} {{website_icon}}
+              </td>
+            </tr>
+            <tr>
+              <td valign='top' width='100%' colspan='3'>
+                 {{description}}
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+	  </table>
+	  <br />
+	  <table border='0' cellspacing='0' cellpadding='0' width='90%'>
+	    <tr>
+	      <td width='51%' valign='top'>
+	        <table class='tableheader' cellspacing='0' cellpadding='2' style='width:100%'>
+	          <tr>
+              <td height='25' colspan='2' width='100%' bgcolor='#333344' align='left'>
+                <table border='0' cellspacing='0' cellpadding='0' width='100%'>
+                  <tr>
+                    <td width='75%'>
+                      <b>Update History</b>
+                    </td>
+                    <td width='25%' align='right'>
+            	        &nbsp;
+                    </td>
+      	          </tr>
+      	        </table>
+      	      </td>
+      	    </tr>
+      	    <tr>
+      	      <td colspan='2'>
+      	        &nbsp;
+      	      </td>
+      	    </tr>
+	          {{version_history}}
+	        </table>
+	        <table border='0' cellpadding='2' cellspacing='0' align='left' style='margin-top:4px'>
+	          <tr>
+	            <td>
+    	          <img src='{{image_path}}/report.gif' alt='[!]' /> 
+    	        </td>
+    	        <td>
+    	          <a href='{{report_url}}'>&nbsp;Report This Submission</a>
+    	        </td>
+    	      </tr>
+	        </table>
+	      </td>
+	      <td width='3%'>
+	        &nbsp;
+	      </td>
+	      <td width='46%' valign='top'>
+	        <table class='tableheader' cellspacing='0' cellpadding='2' style='width:100%'>
+	          <tr>
+	            <td width='25' height='25' align='center'><img src='{{image_path}}/time.gif' alt='[O]' /></td>
+	            <td width='90'>Created:</td>
+	            <td>{{created}}</td>
+	          </tr>
+	          <tr>
+	            <td width='25' height='25' align='center'>{{updated_icon}}</td>
+	            <td>Updated:</td>
+	            <td>{{updated}}</td>
+	          </tr>
+	          <tr>
+	            <td width='25' height='25' align='center'><img src='{{image_path}}/disk.gif' alt='[O]' /></td>
+	            <td>File Size:</td>
+	            <td>{{size}}</td>
+	          </tr>
+	          <tr>
+	            <td width='25' height='25' align='center'><img src='{{image_path}}/gray_arrow.gif' alt='[O]' /></td>
+	            <td>Views:</td>
+	            <td>{{views}}</td>
+	          </tr>
+	          <tr>
+	            <td width='25' height='25' align='center'><img src='{{image_path}}/green_arrow.gif' alt='[O]' /></td>
+	            <td>Downloads:</td>
+	            <td>{{downloads}}</td>
+	          </tr>
+	          <tr>
+	            <td colspan='3' align='center'>
+	              <span style='font-size:14pt'>{{download_text}}</span>
+	            </td>
+	          </tr>
+	        </table>
+	      </td>
+	    </tr>
+	  </table>
+	  <br />
+	  <table border='0' width='90%'>
+	    <tr>
+	      <td class='tablecell1' colspan='2'>
+	        <span class='boxheader'>Comments</span>
+	      </td>
+	    </tr>
+    </table>
+    {{coment_list}}
+	</div>

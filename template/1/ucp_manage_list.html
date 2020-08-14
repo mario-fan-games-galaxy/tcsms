@@ -1,0 +1,22 @@
+  <br />
+  <form method='post' action='{{root_url}}act=user&param=03'>
+  <div align='center'>
+	  <table border='0' width='90%'>
+	    <tr>
+	      <td class='tablecell1' colspan='2'>
+	        <span class='boxheader'>Manage Submissions</span>
+	      </td>
+	    </tr>
+    </table>
+    <table class='tableheader' cellspacing='0' cellpadding='0'>
+	  <tr><td height='30' width='100' align='center' class='tablecell3'>
+    <input type='submit' value='View Type' class='button'>
+    </td>
+    <td height='30' class='tablecell3'>&nbsp;
+      {{type_list}}
+    </td></tr></table>
+	  <table class='tableheader' cellspacing='0' cellpadding='0'>
+	    {{rows}}
+	  </table>
+  </div>
+  </form>

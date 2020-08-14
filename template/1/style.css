@@ -1,0 +1,239 @@
+body {
+	background : #FFFFFF;
+	color : #000000;
+	font-size : 10pt;
+	font-family : Verdana, Helectiva, Arial, Sans-Serif;
+}
+
+td {
+	font-size : 10pt;
+}
+
+a:link, a:visited {
+	color : #444B8A;
+	text-decoration : underline;
+}
+
+a:hover, a:active {
+	color : #686FB4;
+	text-decoration : underline;
+}
+
+form {
+	display: inline;
+}
+
+.onclick {
+	color : #FFFF00;
+}
+
+.header {
+	border: 1px solid gray;
+	background : #91BDA8;
+	width: 100%;
+}
+
+.menu {
+	border: 1px solid gray;
+	background : #91BDA8;
+	width: 100%;
+}
+
+.menutitle {
+	background-color: #91BDA8;
+	text-align: left;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.menusection {
+	background-color: #D0E2DA;
+	text-align: left;
+	padding: 4px;
+	margin-left: 6px;
+}
+
+.menuitem {
+	padding: 1px;
+}
+
+.title {
+	font-weight : bold;
+}
+
+.sidebarheader {
+	color : #FFFFFF;
+	font-weight : bold;
+	text-align : left;
+}
+
+.sidetextbox {
+	border : 1px solid gray;
+	background-color : #FFFFFF;
+}
+
+.sidebutton {
+	border : 1px solid gray;
+	background-color : lightgray;
+}
+
+.login {
+}
+
+.hilight {
+	font-weight: bold;
+	color: #1CAA58;
+}
+
+.highlight {
+	color: #C81A1A;
+}
+
+.textbox {
+	border : 1px solid #000059;
+	background : #D0E2DA;
+	color : #000000;
+}
+
+.button {
+
+}
+
+.selectbox {
+
+}
+
+
+.tableheader {
+	text-align : left;
+	border : 1px solid gray;
+	border-collapse : collapse;
+	background-color : #D0E2DA;
+	width : 95%;
+}
+
+.tablecell1 {
+}
+
+.tablecell2 {
+}
+
+.tablecell3 {
+	border : 1px solid gray;
+}
+
+.itembox {
+	border: 1px solid #000078;
+	background-color: #000058;
+}
+
+.itemboxcell1 {
+	background-color: #000068;
+}
+
+.orderbar {
+	background-color: #000070;
+	text-align: center;
+}
+
+.activecell0 {
+	background-color: #000058;
+}
+
+.activecell1 {
+	background-color: #444460;
+}
+
+.boxheader {
+	color : #5B8B76;
+	font-size : 22pt;
+}
+
+
+
+
+
+
+.sform {
+	color: #000000;
+	text-align: left;
+	border : 1px solid gray;
+	background-color : #D0E2DA;
+	width: 95%;
+}
+
+.sformtable {
+	text-align: left;
+	border: 0px;
+	width: 100%;
+}
+
+.sformtablex {
+	width: 100%;
+}
+
+.sformblock {
+	text-align: left;
+	padding: 3px;
+}
+
+.sformstrip {
+	background-color: #91BDA8;
+	text-align: left;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.sformsubstrip {
+	background-color: #ABCBBD;
+	text-align: left;
+	padding: 4px;
+}
+
+.sformleft {
+	width: 35%;
+	background-color: #B8D2C7;
+	padding: 3px;
+}
+
+.sformright {
+	width: 65%;
+	padding: 3px;
+}
+
+.sformleftw {
+	background-color: #B8D2C7;
+	padding: 3px;
+}
+
+.sformfree {
+	padding: 2px;
+}
+
+.sformtitle {
+	background-color: #91BDA8;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.sformlowline {
+	border-bottom: 1px solid gray;
+}
+
+.sformdark {
+	background-color: #629E80;
+}
+
+.message {
+	text-align: center;
+	border: 2px solid #333344;
+	background-color: #9FB2DD;
+	padding: 5px;
+	width: 75%;
+}
+
+.search_hl {
+	color: red;
+	background-color: yellow;
+	font-weight: bold;
+}

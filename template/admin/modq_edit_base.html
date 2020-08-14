@@ -1,0 +1,151 @@
+<script type='text/javascript'>
+  function check_move() {
+      id = get_by_id('change_to');
+      
+      if (id.value != '') {
+          form_check = confirm('Warning: You have chosen to move this submission to a new parent category.  All extended data for this submission will be lost!\n\nDo you still wish to continue?');
+      } else {
+          form_check = true;
+      }
+    
+      if (form_check == true) {
+          return true;
+      } else {
+          return false;
+      }
+  }
+
+  function check_drop() {
+      form_check = confirm('Warning: Dropping this record will permanently delete them from the database.\n\nDo you still wish to continue?');
+    
+      if (form_check == true) {
+          document.res_edit.action = '{{url}}&param=05&c={{c}}&virus_check=1';
+          return true;
+      } else {
+          return false;
+      }
+  }
+  
+  function check_restore() {
+      form_check = confirm('Warning: This will drop all user-supplied changes to this submission since the last time it was accepted, and restore the old files.\n\nDo you still wish to continue?');
+      
+      if (form_check == true) {
+          document.res_edit.rid.value = '{{prerid}}';
+          document.res_edit.action = '{{url}}&param=10&c={{c}}&virus_check=1';
+          return true;
+      } else {
+          return false;
+      }
+  }
+</script>
+<form method='post' name='res_edit' action='{{url}}&amp;param=03' enctype='multipart/form-data'>
+  <input type='hidden' name='rid' value='{{rid}}' />
+  <input type='hidden' name='c' value='{{c}}' />
+  <input type='hidden' name='security_token' value='{{security_token}}' />
+	<div align='center'>
+	  <div id='ghost' style='{{ghost_style}}'>
+	  &nbsp;
+	  <table border='0' cellspacing='0' cellpadding='1' width='90%' style='border:2px solid #ff6169; background-color:#ffd1cf;'>
+	  <tr>
+	    <td width='100%' style='font-weight: bold'>This modified submission is a ghost copy of the original.  You can restore the original submission at the bottom of the page.</td>
+	  </tr>
+	  </table>
+	  </div>
+		<table border='0' cellspacing='0' cellpadding='1' width='90%'>
+		
+  		<tr id='menu_10' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed' style='background-color:#FBFCCE'>
+  		    Parent categories define what type the submission is, and also define additional type-specific fields a submission can have, such as number of reviews associated with a game.  If necessary, submissions can be moved to a different parent category, however any type-specific data will be lost in the conversion.
+  		  </td>
+  		</tr>
+  		<tr>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed'>
+  		    &nbsp;
+  		  </td>
+  		</tr>
+  		
+      {{form}}
+	    
+  		<tr>
+  		  <td class='title_fixed' valign='top'>
+  		    Admin Comment <a href='javascript:show_hide(18);'><img src='{{image_path}}/info.gif' border='0' alt='?' /></a>
+  		  </td>
+  		  <td class='field_fixed'>
+  		    <textarea name='admincomment' rows='4' cols='30' class='textbox'></textarea>
+  		    <br /><input type='checkbox' name='omit_comment' value='1' class='checkbox' /> Do not inform the user of this modification
+  		  </td>
+  		</tr>
+  		<tr id='menu_18' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed' style='background-color:#FBFCCE'>
+  		    Admin Comments are meant to inform users of what you're doing to change their submissions, such as changing the description or title to something more appropriate, or changing the categories or tags.  If the modification is very trivial, you can chose to not sent a comment by checking the box below, but it's strongly advised you leave comments for any significent changes.  
+  		  </td>
+  		</tr>
+  		<tr>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed'>
+  		    &nbsp;
+  		  </td>
+  		</tr>
+  		<tr style='{{ghost_style}}'>
+	      <td class='title_fixed' valign='top'>
+	        User-Supplied Update Reason <a href='javascript:show_hide(20);'><img src='{{image_path}}/info.gif' border='0' alt='?' /></a>
+	      </td>
+	      <td class='field_fixed' valign='top'>
+	        <textarea name='reason' class='textbox' rows='4' cols='40' disabled='disabled' style='background-color:#EEEEEE'>{{reason}}</textarea>
+	      </td>
+	    </tr>
+	    <tr id='menu_20' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed' style='background-color:#FBFCCE'>
+  		    This is the user's explaination for the update.  If the user has changed the file, this will also appear in the submission's version history.  If no valid reason for the update is given, the submission should be restored.
+  		  </td>
+  		</tr>
+  		<tr style='{{ghost_style}}'>
+	      <td class='title_fixed' valign='top'>
+	        Restore Submission <a href='javascript:show_hide(19);'><img src='{{image_path}}/info.gif' border='0' alt='?' /></a>
+	      </td>
+	      <td class='field_fixed' valign='top'>
+	        <input type='submit' value='Restore' class='button' onclick='check_restore()' />
+	      </td>
+	    </tr>
+	    <tr id='menu_19' style='display:none'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed' style='background-color:#FBFCCE'>
+  		    If this user has made unacceptable changes to the submission, or another problem has ouccured, use this button to restore the submission to its previous state.  The user's changes will be dropped.
+  		  </td>
+  		</tr>
+  		<tr style='{{ghost_style}}'>
+  		  <td class='title_fixed'>
+  		    &nbsp;
+  		  </td>
+  		  <td class='field_fixed'>
+  		    &nbsp;
+  		  </td>
+  		</tr>
+  		<tr>
+  		  <td class='title_fixed' valign='top'>
+  		    Complete Form
+  		  </td>
+  		  <td class='field_fixed'>
+          <input type='submit' class='button' value='Update Record' onclick='return check_move();' /> 
+          <input type='submit' class='button' value='DROP Record' style='background-color: #FF6169; color: white' onclick='return check_drop();' />
+  		  </td>
+  		</tr>
+		</table>
+	</div>
+</form>

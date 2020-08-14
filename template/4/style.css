@@ -1,0 +1,457 @@
+body {
+	background : url('images/background.png');
+	background-attachment: fixed;
+	color : #000;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	background-color: #005511;
+	font-size: 10pt;
+}
+
+td {
+	font-size : 10pt;
+}
+
+a:link,
+a:visited,
+a:active {
+	color: #750000;
+	text-decoration: none;
+}
+
+a:hover
+{
+    color: #C50000;
+    text-decoration: underline;
+}
+
+.sformstrip a:link, .sformsubstrip a:link, a#reply:link, a.outlink:link,
+.sformstrip a:visited, .sformsubstrip a:visited, a#reply:visited, a.outlink:visited,
+.sformstrip a:active, .sformsubstrip a:active, a#reply:active, a.outlink:active {
+	color: #FFFF00;
+	text-decoration: none;
+}
+
+.sformstrip a:hover, .sformsubstrip a:hover, a#reply:hover, a.outlink:hover
+{
+    text-decoration: underline;
+}
+
+.stafflink .adminwrap, .stafflink a:link, .stafflink a:visited, .stafflink a:active, .stafflink a:hover
+{
+    color: #FFFF00 !important;
+    text-decoration: none;
+}
+
+form {
+	display: inline;
+}
+
+.onclick {
+	color : #FFFF00;
+}
+
+.header {
+	border: 0px;
+	padding: 0px;
+	background : green;
+	width: 100%;
+	background-image: url('images/header.png'), url('images/header_br.png');
+	background-position: left top;
+	background-repeat: no-repeat, repeat;
+	height: 128px;
+	border-radius: 8px;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+
+.header img
+{
+    display: none;
+}
+
+.menu {
+	background-color: #777777;
+	border: 1px solid #333333;
+	width: 100%;
+}
+
+.menutitle {
+    color: #FFFFFF;
+	background-color: #006600;
+	background-image: url('images/grad2.png');
+	text-align: left;
+	font-weight: bold;
+	padding: 4px;
+}
+
+.menusection {
+	background-color: #EFEFEF;
+	
+	text-align: left;
+	padding: 4px;
+	padding-right: 2px;
+}
+
+.menuitem {
+	padding: 1px;
+}
+
+.title {
+	font-weight : bold;
+	color : pink;
+}
+
+.sidebarheader {
+	color : #FFFFFF;
+	font-weight : bold;
+	text-align : left;
+}
+/*
+.sidetextbox {
+	border : 1px solid black;
+	background-color : #5060A9;
+	color: black;
+}
+
+.sidebutton {
+	border : 1px solid black;
+	color: black;
+	background-color : #5060A9;
+}*/
+
+.login {
+}
+
+.hilight {
+	font-weight: bold;
+}
+
+.highlight {
+    color: #C00;
+}
+b.highlight
+{
+    color: #fafaaa;
+}
+.queued {
+	color: orange;
+}
+
+.textbox, .sidetextbox {
+	color: #333333;
+	font-family: Verdana, Helvetica, sans-serif;
+	width: 95%;
+	margin: auto;
+	font-weight: normal;
+	padding: 1px;
+	border: 1px solid #00376A;
+	background-color: #FAFAFA;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.button, .sidebutton {
+	font-weight: normal;
+	background-color: #ECECEC;
+	border: 1px solid #372D5B;
+	cursor: pointer;
+	padding: 1px 5px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+textarea {
+	background-color: #FAFAFA;
+	color: #333333;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	/*line-height: 1.4em;*/
+	font-weight: normal;
+	border: 1px solid #00376A;
+	padding: 2px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.selectbox {
+	color: #333333;
+	background-color: #FAFAFA;
+	font-family: Verdana, Helvetica, sans-serif;
+	font-weight: normal;
+	border: 1px solid #00376A;
+	padding: 1px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.checkbox {
+}
+
+.radiobutton {
+}
+
+.subtext {
+	font-size: 8pt;
+}
+
+.header_region {
+	width: 100%;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.boxpageheader {
+    color: #C00;
+	background-color: #006600;
+	background-image: url('images/grad3.png');
+	text-align: left;
+	font-weight: bold;
+	padding: 4px;
+	width: 100px;
+	font-size: 2em;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+}
+
+.boxheader {
+	color : white;
+	font-size : 20pt;
+	font-weight: bold;
+}
+
+.copyright
+{
+    color: #fff;
+}
+
+
+.staff
+{
+    background-color: #009C5C !important;
+    background-image: url('images/blank.gif') !important;
+}
+
+
+
+.canvas_left {
+	width: 124px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+	padding-right:0px;
+}
+
+.canvas_center {
+	width: 97%;
+	text-align: left;
+	margin-left: auto;
+	margin-right: 1%;
+}
+
+
+.canvas_right {
+}
+
+
+.newsform {
+	text-align: left;
+	background-color: #006600;
+	width: 90%;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.newsstrip {
+	color: #fff;
+	background-color: #006600;
+	text-align: left;
+    font-weight: bold;
+	padding: 2px;
+	background-image: url('images/grad2.png');
+	text-shadow: #000000 1px 1px; 
+}
+
+.newssubstrip {
+	
+	text-align: left;
+	padding: 4px;
+	margin-top: 1px;
+	margin-bottom: 1px;
+}
+
+.newsleftw {
+	padding: 3px;
+	background-color: #B9DFB9;
+    border-collapse: collapse;
+}
+
+.topstrip {
+	 border-top:1px solid #000090;
+}
+
+.sform {
+	text-align: left;
+	width: auto;
+	background-color: #EFEFEF;
+	border: 1px solid #333;
+	/*-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;*/
+}
+
+.sformtable {
+	text-align: left;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+
+
+.sformtablex {
+	width: 100%;
+}
+.sformblock {
+	text-align: left;
+	padding: 4px;
+}
+
+.sformstrip {
+    color: #fff;
+	background-color: #006600;
+	text-align: left;
+    font-weight: bold;
+	font-size: 1.1em;
+	padding: 4px 4px;
+	background-image: url('images/grad1.png');
+	text-shadow: #000000 1px 1px; 
+}
+
+.sformsubstrip {
+    color: #fff;
+	background-color: #006600;
+	text-align: left;
+    font-weight: bold;
+	font-size: 1.1em;
+	padding: 4px 4px;
+	background-image: url('images/grad1.png');
+	text-shadow: #000000 1px 1px; 
+	/*-moz-border-radius-topleft:8px;
+	-webkit-border-top-left-radius:8px;
+	border-radius-topleft:8px;
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-radius-bottomleft:3px;*/
+	color: #000000;
+}
+
+.sformleft {
+	background-color: #B4D4B4;
+	width: 35%;
+	padding: 3px;
+}
+
+.sformright {
+	width: 65%;
+	padding: 3px;
+}
+
+.sformleftw {
+	/*background-color: #000090;*/
+	padding: 3px;
+}
+
+.sformfree {
+	padding: 2px;
+}
+
+.sformtitle {
+	background-color: #B4D4B4;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.sformdark {
+    color: #FFFFFF;
+	background-color: #006600;
+	background-image: url('images/grad2.png');
+}
+
+.message {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+    color: #FFFFFF;
+	background-color: #006600;
+	background-image: url('images/grad2.png');
+	padding: 5px;
+	width: 90%;
+}
+
+.search_hl {
+	color: red;
+	background-color: yellow;
+	font-weight: bold;
+}
+
+.quotetitle {
+	margin: 10px 5px 0 5px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	padding-left: 6px;
+	padding-right: 6px;
+	border-width: 1px 1px 0 1px;
+	border-style: solid;
+	border-color: #333333;
+	color: #000000;
+	background-color: #ffffff;
+	font-size: 0.85em;
+	font-weight: bold;
+	background-image: url('images/grad3.png');
+	-moz-border-radius-topright:12px;
+	-webkit-border-top-right-radius:12px;
+	-moz-border-radius-topleft:12px;
+	-webkit-border-top-left-radius:12px;
+	-moz-box-shadow: 6px 6px 0px 0px rgba(100, 100, 100, 0.25);
+	-webkit-box-shadow: 6px 6px 0px 0px rgba(100, 100, 100, 0.25);
+	font-size: 1em;
+}
+
+.quote {
+	margin: 0 5px 10px 5px;
+	padding: 5px;
+	border-color: #333333;
+	border-width: 0 1px 1px 1px;
+	border-style: solid;
+	font-weight: normal;
+	font-size: 1em;
+	line-height: 1.4em;
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+	background-color: #E0E0E0;
+	color: #000000;
+	-moz-border-radius-bottomright:12px;
+	-webkit-border-bottom-right-radius:12px;
+	-moz-border-radius-bottomleft:12px;
+	-webkit-border-bottom-left-radius:12px;
+	background-image: url('images/quoteshadow.gif');
+	background-repeat: repeat-x;
+	-moz-box-shadow: 6px 6px 0px 0px rgba(100, 100, 100, 0.25);
+	-webkit-box-shadow: 6px 6px 0px 0px rgba(100, 100, 100, 0.25);
+}
+
+/*.adminwrap {
+	color : #ffff00;
+}*/
+
+.adminwrap, .adminwrap:link, .adminwrap:visited {
+	color : #D19900;
+	text-decoration : none;
+}
+
+.adminwrap:hover, .adminwrap:active {
+	color : #ff0000;
+	text-decoration : none;
+}
